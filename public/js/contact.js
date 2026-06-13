@@ -1,168 +1,153 @@
+// Contact Page Logic
+
 document.addEventListener('DOMContentLoaded', () => {
-    initCharCounter();
-    initDateAndTimePickers();
+    initContactForm();
     initReservationForm();
+    initFAQ();
+    
+    // Set min date for reservation to today
+    const dateInput = document.getElementById('resDate');
+    if(dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+    }
 });
 
-// Character Counter
-function initCharCounter() {
-    const msgInput = document.getElementById('contactMessage');
-    const countSpan = document.getElementById('charCount');
-    if(!msgInput) return;
-
-    msgInput.addEventListener('input', () => {
-        const len = msgInput.value.length;
-        countSpan.innerText = `${len}/500`;
-        if(len < 20) countSpan.style.color = 'red';
-        else countSpan.style.color = 'var(--gray)';
-    });
-}
-
-// Date and Time Setup
-function initDateAndTimePickers() {
-    const dateInput = document.getElementById('resDate');
-    const timeSelect = document.getElementById('resTime');
-    if(!dateInput || !timeSelect) return;
-
-    // Set min date to today
-    const today = new Date().toISOString().split('T')[0];
-    dateInput.setAttribute('min', today);
-    dateInput.value = today;
-
-    // Generate time slots (7 AM to 10 PM, 30 min intervals)
-    for(let h = 7; h <= 22; h++) {
-        for(let m = 0; m < 60; m += 30) {
-            if(h === 22 && m === 30) continue; // last slot 10:00 PM
-            const ampm = h >= 12 ? 'PM' : 'AM';
-            const displayH = h > 12 ? h - 12 : (h === 0 ? 12 : h);
-            const displayM = m === 0 ? '00' : '30';
-            
-            const timeString = `${displayH}:${displayM} ${ampm}`;
-            const valueString = `${h < 10 ? '0'+h : h}:${displayM}:00`;
-            
-            const option = document.createElement('option');
-            option.value = valueString;
-            option.innerText = timeString;
-            timeSelect.appendChild(option);
-        }
-    }
-}
-
-// Stepper
-window.updateGuests = function(change) {
-    const input = document.getElementById('resGuests');
-    let val = parseInt(input.value);
-    val += change;
-    if(val < 1) val = 1;
-    if(val > 20) val = 20;
-    input.value = val;
-};
-
-// FIX 8: FORMS NOT SUBMITTING
-// Contact form
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
+function initContactForm() {
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('contactStatus');
+    const btn = document.getElementById('contactSubmitBtn');
     
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    submitBtn.textContent = 'Sending...';
-    submitBtn.disabled = true;
-    
-    const formData = {
-      name: document.getElementById('contactName').value,
-      email: document.getElementById('contactEmail').value,
-      phone: document.getElementById('contactPhone').value,
-      subject: document.getElementById('contactSubject').value,
-      message: document.getElementById('contactMessage').value
-    };
-    
-    // Validation
-    if (!formData.name || !formData.email || !formData.message) {
-      if(window.showToast) window.showToast('Please fill all required fields', 'error');
-      submitBtn.textContent = 'Send Message';
-      submitBtn.disabled = false;
-      return;
-    }
-    
-    if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      if(window.showToast) window.showToast('Please enter valid email', 'error');
-      submitBtn.textContent = 'Send Message';
-      submitBtn.disabled = false;
-      return;
-    }
-    
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json' 
-        },
-        body: JSON.stringify(formData)
-      });
-      
-      const result = await response.json();
-      
-      if (result.success) {
-        if(window.showToast) window.showToast('✅ Message sent! We will reply soon.', 'success');
-        contactForm.reset();
-        document.getElementById('charCount').innerText = '0/500';
-      } else {
-        throw new Error(result.message);
-      }
-    } catch (error) {
-      if(window.showToast) window.showToast('❌ Failed to send. Please try again.', 'error');
-    } finally {
-      submitBtn.textContent = 'Send Message';
-      submitBtn.disabled = false;
-    }
-  });
-}
-
-// Reservation Form Submit
-function initReservationForm() {
-    const form = document.getElementById('reservationForm');
     if(!form) return;
-
+    
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        const btn = document.getElementById('resSubmitBtn');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Booking...';
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
         btn.disabled = true;
-
+        
         const payload = {
-            guest_name: document.getElementById('resName').value,
-            guest_phone: document.getElementById('resPhone').value,
-            guest_email: document.getElementById('resEmail').value,
-            date: document.getElementById('resDate').value,
-            time: document.getElementById('resTime').value,
-            guests_count: parseInt(document.getElementById('resGuests').value),
-            special_requests: document.getElementById('resRequests').value
+            name: document.getElementById('contactName').value,
+            email: document.getElementById('contactEmail').value,
+            phone: document.getElementById('contactPhone').value,
+            subject: document.getElementById('contactSubject').value,
+            message: document.getElementById('contactMessage').value
         };
-
+        
         try {
-            const res = await fetch('/api/reservations', {
+            const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
-            const data = await res.json();
+            
+            const data = await response.json();
             
             if(data.success) {
-                if(window.showToast) window.showToast('Table booked successfully! ✅', 'success');
+                status.innerHTML = '<span style="color:#25D366;"><i class="fa-solid fa-check"></i> Message sent successfully! We will get back to you soon.</span>';
                 form.reset();
-                initDateAndTimePickers(); // reset date
             } else {
-                if(window.showToast) window.showToast('Error: ' + data.message, 'error');
+                throw new Error(data.message || 'Failed to send message');
             }
-        } catch(err) {
-            console.error('Reservation error:', err);
-            if(window.showToast) window.showToast('Something went wrong. Please try again. ❌', 'error');
+        } catch (error) {
+            console.error('Contact error:', error);
+            status.innerHTML = '<span style="color:#ff3333;"><i class="fa-solid fa-triangle-exclamation"></i> Error sending message. Please try again.</span>';
         } finally {
-            btn.innerHTML = originalText;
+            btn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>';
             btn.disabled = false;
         }
+    });
+}
+
+function initReservationForm() {
+    const form = document.getElementById('reservationForm');
+    const status = document.getElementById('resStatus');
+    const btn = document.getElementById('resSubmitBtn');
+    
+    if(!form) return;
+    
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Confirming...';
+        btn.disabled = true;
+        
+        const payload = {
+            guest_name: document.getElementById('resName').value,
+            guest_phone: document.getElementById('resPhone').value,
+            guest_email: 'guest@example.com', // Optional in schema
+            date: document.getElementById('resDate').value,
+            time: document.getElementById('resTime').value,
+            guests_count: document.getElementById('resGuests').value,
+            special_requests: document.getElementById('resSpecial').value
+        };
+        
+        try {
+            const response = await fetch('/api/reservations', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            
+            const data = await response.json();
+            
+            if(data.success) {
+                status.innerHTML = `<span style="color:#25D366;"><i class="fa-solid fa-check-circle"></i> Table reserved successfully! Booking ID: #${data.id}</span>`;
+                form.reset();
+                document.getElementById('resGuests').value = 2;
+                document.getElementById('guestCountDisplay').textContent = 2;
+                // Reset time to default 8 PM
+                document.querySelectorAll('.time-slot').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.time-slot')[5].classList.add('active');
+                document.getElementById('resTime').value = '08:00 PM';
+            } else {
+                throw new Error(data.message || 'Failed to reserve table');
+            }
+        } catch (error) {
+            console.error('Reservation error:', error);
+            status.innerHTML = '<span style="color:#ff3333;"><i class="fa-solid fa-triangle-exclamation"></i> Error making reservation. Please call us directly.</span>';
+        } finally {
+            btn.innerHTML = 'Confirm Reservation';
+            btn.disabled = false;
+        }
+    });
+}
+
+// Global functions for reservation form
+window.selectTime = function(element, time) {
+    document.querySelectorAll('.time-slot').forEach(el => el.classList.remove('active'));
+    element.classList.add('active');
+    document.getElementById('resTime').value = time;
+}
+
+window.updateGuests = function(change) {
+    const input = document.getElementById('resGuests');
+    const display = document.getElementById('guestCountDisplay');
+    let current = parseInt(input.value);
+    
+    current += change;
+    if(current < 1) current = 1;
+    if(current > 20) current = 20;
+    
+    input.value = current;
+    display.textContent = current;
+}
+
+function initFAQ() {
+    const items = document.querySelectorAll('.faq-item');
+    
+    items.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all others
+            items.forEach(i => i.classList.remove('active'));
+            
+            // Toggle current
+            if(!isActive) {
+                item.classList.add('active');
+            }
+        });
     });
 }

@@ -1,115 +1,133 @@
+// Home page specific logic
+
 document.addEventListener('DOMContentLoaded', () => {
-  loadBestsellers();
-  setTimeout(() => {
-    document.querySelectorAll('.stat-num').forEach(animateCounter);
-  }, 300);
+    // Hero Title Animation
+    animateHeroTitle();
+    
+    // Load Bestsellers
+    loadBestsellers();
+    
+    // Countdown Timer
+    initCountdown();
 });
 
-// FIX 2: Hero Section Counter animation
-function animateCounter(el) {
-  const target = parseFloat(el.getAttribute('data-target'));
-  const isDecimal = !Number.isInteger(target);
-  const duration = 2000;
-  const step = target / (duration / 16);
-  let current = 0;
-
-  const timer = setInterval(() => {
-    current += step;
-    if (current >= target) {
-      el.textContent = isDecimal ? target.toFixed(1) : target;
-      clearInterval(timer);
-    } else {
-      el.textContent = isDecimal ? current.toFixed(1) : Math.floor(current);
-    }
-  }, 16);
+function animateHeroTitle() {
+    const title = document.getElementById('heroTitle');
+    if (!title) return;
+    
+    const text = title.innerHTML;
+    const lines = text.split('<br>');
+    title.innerHTML = '';
+    
+    lines.forEach((line, lineIndex) => {
+        const words = line.trim().split(' ');
+        words.forEach((word, wordIndex) => {
+            const span = document.createElement('span');
+            span.className = 'word';
+            span.innerHTML = word + '&nbsp;';
+            span.style.animation = `fadeInUp 0.5s ease forwards ${0.5 + (lineIndex * 0.3) + (wordIndex * 0.1)}s`;
+            if (lineIndex === 1 && wordIndex === 1) {
+                span.style.color = 'var(--primary)';
+            }
+            title.appendChild(span);
+        });
+        if (lineIndex < lines.length - 1) {
+            title.appendChild(document.createElement('br'));
+        }
+    });
 }
 
-
+// Add animation keyframes to document
+const style = document.createElement('style');
+style.innerHTML = `
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+`;
+document.head.appendChild(style);
 
 async function loadBestsellers() {
-  try {
-    const response = await fetch('/api/menu');
-    const data = await response.json();
-
-    if (!data.success) throw new Error('API failed');
-
-    // Get bestsellers, fallback to first 6 if none
-    let dishes = data.data.filter(d => d.is_bestseller);
-    if (dishes.length < 3) dishes = data.data.slice(0, 6);
-
-    // Take max 6
-    dishes = dishes.slice(0, 6);
-
     const grid = document.getElementById('bestsellersGrid');
     if (!grid) return;
-
-    grid.innerHTML = dishes.map((dish, i) => `
-      <div class="dish-card" 
-        style="animation-delay: ${i * 0.1}s">
+    
+    try {
+        const response = await fetch('/api/menu/bestsellers');
+        if (!response.ok) throw new Error('API Error');
         
-        <div class="veg-indicator 
-          ${dish.is_veg ? 'veg' : 'non-veg'}">
-        </div>
+        const data = await response.json();
+        if (!data.success) throw new Error(data.message);
         
-        <span class="badge-bestseller">⭐ Best</span>
+        const dishes = data.data.slice(0, 6);
         
-        <div class="dish-img-wrap">
-          <img 
-            src="${dish.image_url}"
-            alt="${dish.name}"
-            class="dish-card-img"
-            loading="lazy"
-            onerror="this.src='https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80'"
-          />
-        </div>
+        if (dishes.length === 0) {
+            grid.innerHTML = '<p style="color:var(--text-muted); padding:20px;">No bestsellers found.</p>';
+            return;
+        }
         
-        <div class="dish-card-body">
-          <h3 class="dish-card-title">${dish.name}</h3>
-          <p class="dish-card-desc">
-            ${dish.description || ''}
-          </p>
-          
-          <div class="dish-meta">
-            <span class="spice-icons">
-              ${'🌶️'.repeat(
-      {
-        'mild': 1, 'medium': 2,
-        'hot': 3, 'extra_hot': 4
-      }
-      [dish.spice_level] || 1
-    )}
-            </span>
-          </div>
-          
-          <div class="dish-card-footer">
-            <span class="dish-price">₹${dish.price}</span>
-            <a href="menu.html" class="btn-order-dish">
-              + Order
-            </a>
-          </div>
-        </div>
-      </div>
-    `).join('');
-
-  } catch (error) {
-    console.error('Bestsellers load failed:', error);
-    document.getElementById('bestsellersGrid')
-      .innerHTML = `
-        <p style="grid-column:1/-1; text-align:center; 
-          color:#888; padding:40px">
-          Could not load dishes. 
-          Please check server connection.
-        </p>
-      `;
-  }
+        grid.innerHTML = dishes.map(dish => `
+            <div class="bs-card">
+                <img src="${dish.image_url}" alt="${dish.name}" class="bs-img">
+                <div class="bs-info">
+                    <span class="bs-tag">${formatCategory(dish.category)}</span>
+                    <h3 class="bs-name">${dish.name}</h3>
+                    <p class="bs-desc">${dish.description || 'Authentic flavor, cooked to perfection.'}</p>
+                    <div style="display:flex; gap:3px; margin-bottom:10px;">
+                        ${getSpiceDots(dish.spice_level)}
+                    </div>
+                    <div class="bs-footer">
+                        <span class="bs-price">₹${dish.price}</span>
+                        <button class="btn-add" onclick="addToCart(${dish.id}, '${dish.name.replace(/'/g, "\\'")}', ${dish.price}, '${dish.image_url}')">Add +</button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+        
+    } catch (error) {
+        console.error('Bestsellers load failed:', error);
+        grid.innerHTML = '<p style="color:red; padding:20px;">Failed to load menu. Is the server running?</p>';
+    }
 }
 
-function getSpiceCount(level) {
+function formatCategory(cat) {
+    return cat.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+}
+
+function getSpiceDots(level) {
+    let count = 0;
     switch(level) {
-        case 'mild': return 1;
-        case 'medium': return 2;
-        case 'hot': return 3;
-        case 'extra_hot': return 4;
-        default: return 0;
+        case 'mild': count = 1; break;
+        case 'medium': count = 2; break;
+        case 'hot': count = 3; break;
+        case 'extra_hot': count = 4; break;
     }
+    
+    let html = '';
+    for(let i=0; i<4; i++) {
+        html += `<div class="spice-dot ${i < count ? 'active' : ''}"></div>`;
+    }
+    return html;
+}
+
+function initCountdown() {
+    const hoursEl = document.getElementById('cd-hours');
+    const minsEl = document.getElementById('cd-minutes');
+    const secsEl = document.getElementById('cd-seconds');
+    
+    if (!hoursEl) return;
+    
+    // Set a random time between 2 and 5 hours
+    let time = (Math.floor(Math.random() * 3) + 2) * 3600 + Math.floor(Math.random() * 60) * 60 + Math.floor(Math.random() * 60);
+    
+    setInterval(() => {
+        time--;
+        if (time < 0) time = 5 * 3600; // reset
+        
+        const h = Math.floor(time / 3600);
+        const m = Math.floor((time % 3600) / 60);
+        const s = time % 60;
+        
+        hoursEl.textContent = h.toString().padStart(2, '0');
+        minsEl.textContent = m.toString().padStart(2, '0');
+        secsEl.textContent = s.toString().padStart(2, '0');
+    }, 1000);
 }

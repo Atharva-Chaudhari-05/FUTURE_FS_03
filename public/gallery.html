@@ -1,128 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <meta name="description" content="Spice Garden Dhaba - Authentic Indian Restaurant serving traditional flavors of Maharashtra.">
-    <title>Gallery | Spice Garden Dhaba</title>
-    
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/gallery.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Mirchi & Masala</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/gallery.css">
 </head>
 <body>
-    <!-- FIX 10: Page Loader -->
-    <div class="page-loader" id="pageLoader">
-        <div class="loader-logo">🍛</div>
-        <div class="loader-text">Spice Garden Dhaba</div>
-        <div class="loader-dots">
-            <span>.</span><span>.</span><span>.</span>
-        </div>
-    </div>
+  <div class="custom-cursor" id="cursor"></div>
 
-    <!-- FIX 1: Navbar -->
-    <nav class="navbar" id="navbar">
-      <div class="nav-container">
-        <div class="nav-logo">
-          <span class="logo-icon">🍛</span>
-          <div class="logo-text">
-            <span class="logo-main">Spice Garden</span>
-            <span class="logo-sub">Dhaba</span>
-          </div>
-        </div>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="menu.html" class="nav-link">Menu</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
-        </ul>
-        <div class="nav-right">
-          <span class="nav-phone">📞 +91-9876543210</span>
-          <button class="btn-order" onclick="location.href='menu.html'">
-            Order Now
-          </button>
-          <button class="theme-toggle" id="themeToggle">
-            🌙
-          </button>
-          <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+  <!-- Page Transition Element -->
+  <div class="page-transition" id="pageTransition"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">🔥</span>
+        <span class="logo-text">Mirchi & Masala</span>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      
+      <div class="nav-right">
+        <button class="cart-icon-btn" onclick="window.location.href='menu.html'">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+        <a href="contact.html#reservation" class="btn-green">Book Table</a>
+        <button class="hamburger" id="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="gallery-hero">
+    <div class="container animate-on-scroll">
+      <h1>A Feast for the Eyes 📸</h1>
+      <p class="accent-text" style="font-size:2rem; margin-top:10px;">Every dish crafted with love</p>
+    </div>
+  </header>
+
+  <!-- Gallery Section -->
+  <section class="container">
+    <div class="gallery-filters animate-on-scroll">
+      <div class="filter-tab active" data-filter="all">All</div>
+      <div class="filter-tab" data-filter="food">Food</div>
+      <div class="filter-tab" data-filter="ambiance">Ambiance</div>
+      <div class="filter-tab" data-filter="kitchen">Kitchen</div>
+      <div class="filter-tab" data-filter="events">Events</div>
+    </div>
+    
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Loading state, will be populated by JS -->
+      <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--text-muted);">
+        <i class="fa-solid fa-spinner fa-spin fa-3x" style="color: var(--primary);"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Overlay -->
+  <div class="lightbox" id="lightbox">
+    <div class="lb-controls">
+      <button class="lb-btn" id="lbDownload" title="Download Image"><i class="fa-solid fa-download"></i></button>
+      <button class="lb-btn" id="lbClose" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    
+    <button class="lb-nav lb-prev" id="lbPrev"><i class="fa-solid fa-chevron-left"></i></button>
+    
+    <div class="lightbox-content">
+      <img src="" alt="Gallery Image" class="lightbox-img" id="lbImg">
+    </div>
+    
+    <button class="lb-nav lb-next" id="lbNext"><i class="fa-solid fa-chevron-right"></i></button>
+    
+    <div class="lb-footer">
+      <div class="lb-title" id="lbTitle">Image Title</div>
+      <div class="lb-counter" id="lbCounter">1 / 10</div>
+    </div>
+  </div>
+
+  <!-- Video Section -->
+  <section class="video-section">
+    <div class="container">
+      <h2 class="animate-on-scroll" style="margin-bottom:40px;">Watch Us Cook 🎬</h2>
+      <div class="video-container animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="Kitchen Video" class="video-placeholder">
+        <div class="play-btn">
+          <i class="fa-solid fa-play"></i>
         </div>
       </div>
-    </nav>
-
-    <!-- HEADER -->
-    <header class="page-header" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1920')">
-        <div class="container text-center animate-up">
-            <h1 style="color:white; font-size:4rem; font-family:var(--font-heading);">Our Gallery</h1>
-            <div class="breadcrumb" style="color:white; margin-top:10px;">
-                <a href="index.html" style="color:var(--primary); text-decoration:none;">Home</a> &gt; <span>Gallery</span>
-            </div>
-        </div>
-    </header>
-
-    <!-- GALLERY SECTION -->
-    <section class="section-padding container">
-        <div class="text-center animate-fade mb-5">
-            <h2 class="accent-text" style="color:var(--primary); font-family:'Dancing Script', cursive; font-size:1.5rem;">Captured Moments</h2>
-            <h2 class="section-title">A Glimpse of Spice Garden</h2>
-        </div>
-
-        <!-- Filter Tabs -->
-        <div class="gallery-filters animate-up" id="galleryFilters" style="display:flex; justify-content:center; flex-wrap:wrap; gap:15px; margin-bottom:40px;">
-            <button class="filter-btn active" data-filter="all" style="padding:8px 20px; border:2px solid var(--primary); background:var(--primary); color:white; border-radius:25px; cursor:pointer;">All</button>
-            <button class="filter-btn" data-filter="food" style="padding:8px 20px; border:2px solid var(--primary); background:transparent; color:var(--text); border-radius:25px; cursor:pointer;">Food</button>
-            <button class="filter-btn" data-filter="ambiance" style="padding:8px 20px; border:2px solid var(--primary); background:transparent; color:var(--text); border-radius:25px; cursor:pointer;">Ambiance</button>
-            <button class="filter-btn" data-filter="kitchen" style="padding:8px 20px; border:2px solid var(--primary); background:transparent; color:var(--text); border-radius:25px; cursor:pointer;">Kitchen</button>
-        </div>
-
-        <!-- Masonry Grid -->
-        <div class="masonry-grid" id="galleryGrid" style="column-count:3; column-gap:20px;">
-            <div class="text-center w-100" style="grid-column:1/-1;"><i class="fas fa-spinner fa-spin"></i> Loading gallery...</div>
-        </div>
-    </section>
-
-    <!-- LIGHTBOX OVERLAY -->
-    <div id="lightbox" class="lightbox" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:rgba(0,0,0,0.9); z-index:10000; display:flex; flex-direction:column; justify-content:center; align-items:center; opacity:0; visibility:hidden; transition:0.3s;">
-        <span class="lightbox-close" id="lightboxClose" style="position:absolute; top:20px; right:30px; color:white; font-size:3rem; cursor:pointer;">&times;</span>
-        <div class="lightbox-content" style="position:relative; max-width:90%; max-height:80vh; display:flex; align-items:center; justify-content:center;">
-            <button class="lightbox-nav prev" id="lightboxPrev" style="position:absolute; left:-70px; background:rgba(255,255,255,0.1); border:none; color:white; width:50px; height:50px; border-radius:50%; font-size:1.5rem; cursor:pointer;"><i class="fas fa-chevron-left"></i></button>
-            <img id="lightboxImg" src="" alt="Gallery Image" style="max-width:100%; max-height:80vh; object-fit:contain; box-shadow:0 0 20px rgba(0,0,0,0.5);">
-            <button class="lightbox-nav next" id="lightboxNext" style="position:absolute; right:-70px; background:rgba(255,255,255,0.1); border:none; color:white; width:50px; height:50px; border-radius:50%; font-size:1.5rem; cursor:pointer;"><i class="fas fa-chevron-right"></i></button>
-        </div>
-        <div class="lightbox-caption" id="lightboxCaption" style="color:white; font-size:1.2rem; margin-top:15px; font-family:var(--font-body);"></div>
-        <div class="lightbox-counter" id="lightboxCounter" style="position:absolute; bottom:20px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.5); font-family:var(--font-body);">1 / 10</div>
     </div>
+  </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="container footer-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:30px; padding:40px 20px; background:#111; color:white;">
-            <div>
-                <h3 class="footer-logo" style="color:var(--primary); font-family:var(--font-heading);">Spice Garden Dhaba</h3>
-                <p style="color:#ccc;">Authentic recipes passed down 3 generations. Experience the true taste of India.</p>
-            </div>
-            <div class="footer-links">
-                <h4 style="color:white;">Quick Links</h4>
-                <ul style="list-style:none; padding:0; line-height:2;">
-                    <li><a href="index.html" style="color:#ccc; text-decoration:none;">Home</a></li>
-                    <li><a href="menu.html" style="color:#ccc; text-decoration:none;">Menu</a></li>
-                    <li><a href="contact.html" style="color:#ccc; text-decoration:none;">Contact</a></li>
-                </ul>
-            </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">🔥 Mirchi & Masala</div>
+          <p class="footer-desc">Where Every Bite Tells a Story. Experience the true taste of Malegaon's street food and traditional recipes.</p>
         </div>
-    </footer>
+        
+        <div>
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li><i class="fa-solid fa-location-dot"></i> Shop 7, Station Road, Near Clock Tower, Malegaon - 423203</li>
+            <li><i class="fa-solid fa-phone"></i> +91-9876543210</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Mirchi & Masala. Made with ❤️ in Malegaon.</p>
+      </div>
+    </div>
+  </footer>
 
-    <script src="js/main.js" defer></script>
-    <script src="js/gallery.js" defer></script>
-  <a href="https://wa.me/919876543210?text=Hi!%20I%20want%20to%20order%20from%20Spice%20Garden%20Dhaba" target="_blank" class="whatsapp-float" title="Order on WhatsApp">
-    💬
-  </a>
-  <button class="back-to-top" id="backToTop">↑</button>
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
 </body>
 </html>

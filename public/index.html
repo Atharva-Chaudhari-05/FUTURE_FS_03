@@ -1,277 +1,321 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <meta name="description" content="Spice Garden Dhaba - Authentic Indian Restaurant serving traditional flavors of Maharashtra.">
-  <title>Spice Garden Dhaba</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mirchi & Masala | Bold Flavors. Zero Compromise.</title>
+  <meta name="description" content="From sizzling street snacks to royal Maharashtra thalis — we cook with passion, serve with pride in Malegaon.">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/home.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <!-- FIX 10: Page Loader -->
+  <!-- Custom Cursor -->
+  <div class="custom-cursor" id="cursor"></div>
+  <!-- Trails added by JS -->
+  
+  <!-- Page Loader -->
   <div class="page-loader" id="pageLoader">
-    <div class="loader-logo">🍛</div>
-    <div class="loader-text">Spice Garden Dhaba</div>
-    <div class="loader-dots">
-      <span>.</span><span>.</span><span>.</span>
+    <div class="loader-flame">🔥</div>
+    <div class="loader-text">Mirchi & Masala</div>
+    <div class="loader-progress">
+      <div class="loader-bar" id="loaderBar"></div>
     </div>
   </div>
 
-  <!-- FIX 1: Navbar -->
+  <!-- Page Transition Element -->
+  <div class="page-transition" id="pageTransition"></div>
+
+  <!-- Navbar -->
   <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <span class="logo-icon">🍛</span>
-        <div class="logo-text">
-          <span class="logo-main">Spice Garden</span>
-          <span class="logo-sub">Dhaba</span>
-        </div>
-      </div>
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">🔥</span>
+        <span class="logo-text">Mirchi & Masala</span>
+      </a>
+      
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="menu.html" class="nav-link">Menu</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
+      
       <div class="nav-right">
-        <span class="nav-phone">📞 +91-9876543210</span>
-        <button class="btn-order" onclick="location.href='menu.html'">
-          Order Now
+        <button class="cart-icon-btn" onclick="window.location.href='menu.html'">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-count" id="cartCount">0</span>
         </button>
-        <button class="theme-toggle" id="themeToggle">
-          🌙
+        <a href="contact.html#reservation" class="btn-green">Book Table</a>
+        <button class="hamburger" id="hamburger">
+          <i class="fa-solid fa-bars"></i>
         </button>
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
       </div>
     </div>
   </nav>
 
-  <!-- FIX 2: Hero Section -->
-  <section class="hero" id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-
-    <!-- Floating particles -->
-    <div class="particles">
-      <span class="particle">🌶️</span>
-      <span class="particle">🍃</span>
-      <span class="particle">⭐</span>
-      <span class="particle">🌿</span>
-      <span class="particle">✨</span>
-      <span class="particle">🍛</span>
-    </div>
-
-    <div class="hero-content">
-      <p class="hero-subtitle animate-word">
-        Welcome to Spice Garden Dhaba
-      </p>
-      <h1 class="hero-title">
-        <span class="word">Taste</span>
-        <span class="word">the</span>
-        <span class="word">Soul</span>
-        <span class="word">of</span>
-        <span class="word" style="color:var(--primary)">
-          India
-        </span>
-      </h1>
-      <p class="hero-desc">
-        Authentic recipes passed down 3 generations.
-        Experience the true flavors of Maharashtra
-        right here in Malegaon.
-      </p>
-      <div class="hero-btns">
-        <a href="menu.html" class="hero-btn-primary">
-          🍽️ Explore Menu
-        </a>
-        <a href="contact.html" class="hero-btn-secondary">
-          📅 Reserve Table
-        </a>
+  <!-- Hero Section -->
+  <section class="hero container">
+    <div class="hero-split">
+      <div class="hero-content animate-on-scroll">
+        <div class="hero-tag">🔥 Malegaon's #1 Street Food</div>
+        <h1 class="hero-title" id="heroTitle">
+          Bold Flavors.<br>Zero Compromise.
+        </h1>
+        <p class="hero-desc">
+          From sizzling street snacks to royal Maharashtra thalis — we cook with passion, serve with pride.
+        </p>
+        <div class="hero-btns">
+          <a href="menu.html" class="btn-orange">🍽️ See Our Menu</a>
+          <a href="contact.html" class="btn-green" style="color: white; border-color: white;">📍 Find Us</a>
+        </div>
+        <div class="trust-badges">
+          <div class="badge">⭐ 4.9 Rated</div>
+          <div class="badge">🚀 30min Delivery</div>
+          <div class="badge">👨‍🍳 Chef Certified</div>
+        </div>
       </div>
-    </div>
-
-    <div class="hero-scroll">
-      <span>Scroll Down</span>
-      <div class="scroll-arrow">↓</div>
-    </div>
-
-    <div class="hero-stats-bar">
-      <div class="container">
-        <div class="hero-stats-inner">
-          <div class="stat-item">
-            <span class="stat-num" data-target="500">0</span>
-            <span class="stat-suffix">+</span>
-            <span class="stat-label">Happy Customers</span>
+      
+      <div class="hero-visual animate-on-scroll" style="transition-delay: 0.2s">
+        <div class="hero-glow"></div>
+        <div class="floating-cards">
+          <div class="float-card fc-1">
+            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=800&q=80" alt="Maharashtra Thali">
           </div>
-          <div class="stat-divider"></div>
-          <div class="stat-item">
-            <span class="stat-num" data-target="50">0</span>
-            <span class="stat-suffix">+</span>
-            <span class="stat-label">Dishes</span>
+          <div class="float-card fc-2">
+            <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600&q=80" alt="Vada Pav">
           </div>
-          <div class="stat-divider"></div>
-          <div class="stat-item">
-            <span class="stat-num" data-target="15">0</span>
-            <span class="stat-suffix">+</span>
-            <span class="stat-label">Years Experience</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat-item">
-            <span class="stat-num" data-target="4.9">0</span>
-            <span class="stat-suffix"> ⭐</span>
-            <span class="stat-label">Excellent Rating</span>
+          <div class="float-card fc-3">
+            <img src="https://images.unsplash.com/photo-1589301760014-d929f39ce9b0?w=600&q=80" alt="Street Food">
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- HIGHLIGHT SECTION -->
-  <section class="categories-section">
-    <div class="container">
-      <p class="section-label">Discover</p>
-      <h2 class="section-title">Our Categories</h2>
-
-      <div class="categories-grid">
-        <div class="category-card" onclick="location.href='menu.html?cat=starters'">
-          <div class="cat-icon-wrap">
-            <img src="https://cdn-icons-png.flaticon.com/128/2454/2454288.png" alt="Starters" class="cat-icon-img" />
-          </div>
-          <span class="cat-name">Starters</span>
-          <span class="cat-count">8 dishes</span>
-        </div>
-
-        <div class="category-card" onclick="location.href='menu.html?cat=main_course'">
-          <div class="cat-icon-wrap">
-            <img src="https://cdn-icons-png.flaticon.com/128/2276/2276931.png" alt="Main Course" class="cat-icon-img" />
-          </div>
-          <span class="cat-name">Main Course</span>
-          <span class="cat-count">10 dishes</span>
-        </div>
-
-        <div class="category-card" onclick="location.href='menu.html?cat=breads'">
-          <div class="cat-icon-wrap">
-            <img src="https://cdn-icons-png.flaticon.com/128/3480/3480618.png" alt="Breads" class="cat-icon-img" />
-          </div>
-          <span class="cat-name">Breads</span>
-          <span class="cat-count">6 dishes</span>
-        </div>
-
-        <div class="category-card" onclick="location.href='menu.html?cat=rice'">
-          <div class="cat-icon-wrap">
-            <img src="https://cdn-icons-png.flaticon.com/128/2454/2454297.png" alt="Rice" class="cat-icon-img" />
-          </div>
-          <span class="cat-name">Rice & Biryani</span>
-          <span class="cat-count">5 dishes</span>
-        </div>
-
-        <div class="category-card" onclick="location.href='menu.html?cat=desserts'">
-          <div class="cat-icon-wrap">
-            <img src="https://cdn-icons-png.flaticon.com/128/3480/3480604.png" alt="Desserts" class="cat-icon-img" />
-          </div>
-          <span class="cat-name">Desserts</span>
-          <span class="cat-count">5 dishes</span>
-        </div>
-
-        <div class="category-card" onclick="location.href='menu.html?cat=beverages'">
-          <div class="cat-icon-wrap">
-            <img src="https://cdn-icons-png.flaticon.com/128/2405/2405479.png" alt="Beverages" class="cat-icon-img" />
-          </div>
-          <span class="cat-name">Beverages</span>
-          <span class="cat-count">4 drinks</span>
-        </div>
-
-        <div class="category-card" onclick="location.href='menu.html?cat=thali'">
-          <div class="cat-icon-wrap">
-            <img src="https://cdn-icons-png.flaticon.com/128/2276/2276929.png" alt="Thali" class="cat-icon-img" />
-          </div>
-          <span class="cat-name">Thali Special</span>
-          <span class="cat-count">3 thalis</span>
-        </div>
+  <!-- Stats Section -->
+  <section class="stats-row">
+    <div class="container stats-grid">
+      <div class="stat-item animate-on-scroll">
+        <h3 class="counter" data-target="10000">0</h3>
+        <p>Orders Delivered</p>
+      </div>
+      <div class="stat-item animate-on-scroll" style="transition-delay: 0.1s">
+        <h3 class="counter" data-target="50">0</h3>
+        <p>Menu Items</p>
+      </div>
+      <div class="stat-item animate-on-scroll" style="transition-delay: 0.2s">
+        <h3 class="counter" data-target="15">0</h3>
+        <p>Years of Taste</p>
+      </div>
+      <div class="stat-item animate-on-scroll" style="transition-delay: 0.3s">
+        <h3>4.9 ⭐</h3>
+        <p>Customer Rating</p>
       </div>
     </div>
   </section>
 
-  <!-- BESTSELLERS SECTION -->
-  <section class="section-padding" style="background:var(--card-bg);">
-    <div class="container">
-      <div class="text-center animate-fade">
-        <p class="section-label">Customer Favorites</p>
-        <h2 class="section-title">Our Bestsellers</h2>
-        <p class="section-subtitle">Dishes that keep our guests coming back for more.</p>
-      </div>
-
-      <div class="dishes-grid" id="bestsellersGrid">
-        <!-- Loaded dynamically by home.js -->
-        <div class="text-center w-100"><i class="fas fa-spinner fa-spin"></i> Loading...</div>
-      </div>
-
-      <div class="text-center" style="margin-top: 40px;">
-        <a href="menu.html" class="btn btn-primary">View Full Menu</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT PREVIEW SECTION -->
+  <!-- Categories Section -->
   <section class="section-padding container">
-    <div class="about-preview">
-      <div class="about-preview-img animate-left">
-        <!-- FIX 5: Images -->
-        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80" alt="Restaurant Interior"
-          loading="lazy">
+    <h2 class="text-center animate-on-scroll">Cravings <span class="accent-text">Satisfied</span></h2>
+    <div class="categories-scroll animate-on-scroll" style="transition-delay: 0.2s">
+      <div class="cat-pill active"><span>🥘</span> Starters</div>
+      <div class="cat-pill"><span>🍛</span> Main Course</div>
+      <div class="cat-pill"><span>🫓</span> Breads</div>
+      <div class="cat-pill"><span>🍚</span> Rice & Biryani</div>
+      <div class="cat-pill"><span>🍮</span> Desserts</div>
+      <div class="cat-pill"><span>🥤</span> Beverages</div>
+      <div class="cat-pill"><span>🍱</span> Thali</div>
+      <div class="cat-pill"><span>🌮</span> Street Food</div>
+    </div>
+  </section>
+
+  <!-- Bestsellers Section -->
+  <section class="section-padding">
+    <div class="container">
+      <h2 class="animate-on-scroll">Fan Favourites 🔥</h2>
+    </div>
+    <div class="bestsellers-container animate-on-scroll" id="bestsellersGrid">
+      <!-- Injected by home.js -->
+      <div style="text-align:center; width:100%; color:var(--text-muted);">Loading our best dishes...</div>
+    </div>
+  </section>
+
+  <!-- Why Us Section -->
+  <section class="section-padding container">
+    <div style="text-align:center; margin-bottom: 50px;" class="animate-on-scroll">
+      <h2>Why We're <span class="accent-text">Different</span></h2>
+      <p>The secret ingredient is always passion.</p>
+    </div>
+    
+    <div class="why-grid">
+      <div class="feature-card animate-on-scroll">
+        <div class="feature-card-inner">
+          <div class="feature-front">
+            <span class="feature-num">01</span>
+            <i class="fa-solid fa-pepper-hot"></i>
+            <h3>Authentic Spices</h3>
+          </div>
+          <div class="feature-back">
+            <p>We source our spices directly from local farmers to ensure the boldest and freshest flavors in every bite.</p>
+          </div>
+        </div>
       </div>
-      <div class="about-preview-content animate-right">
-        <p class="section-label">Our Story</p>
-        <h2>A Legacy of Taste</h2>
-        <p>Started in 2009 by Ramesh Ji, Spice Garden Dhaba brings the authentic rustic flavors of Indian highways to a
-          comfortable family dining experience.</p>
-        <p>We use only the freshest ingredients and traditional slow-cooking methods to ensure every dish tastes exactly
-          like home.</p>
-        <a href="about.html" class="btn btn-primary" style="margin-top: 20px;">Read More</a>
+      
+      <div class="feature-card animate-on-scroll" style="transition-delay: 0.1s">
+        <div class="feature-card-inner">
+          <div class="feature-front">
+            <span class="feature-num">02</span>
+            <i class="fa-solid fa-fire-burner"></i>
+            <h3>Live Cooking</h3>
+          </div>
+          <div class="feature-back">
+            <p>Experience the sizzle! Our open kitchen lets you see exactly how your street food is prepared.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="feature-card animate-on-scroll" style="transition-delay: 0.2s">
+        <div class="feature-card-inner">
+          <div class="feature-front">
+            <span class="feature-num">03</span>
+            <i class="fa-solid fa-leaf"></i>
+            <h3>Farm Fresh</h3>
+          </div>
+          <div class="feature-back">
+            <p>Vegetables and ingredients are brought in fresh every single morning. Zero compromise on quality.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="feature-card animate-on-scroll" style="transition-delay: 0.3s">
+        <div class="feature-card-inner">
+          <div class="feature-front">
+            <span class="feature-num">04</span>
+            <i class="fa-solid fa-motorcycle"></i>
+            <h3>Lightning Fast</h3>
+          </div>
+          <div class="feature-back">
+            <p>Hot food served hot. Our streamlined process ensures your order reaches you in record time.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <h3 class="footer-logo">Spice Garden Dhaba</h3>
-        <p style="color:#ccc;">Authentic recipes passed down 3 generations. Experience the true taste of India.</p>
+  <!-- Testimonials Section -->
+  <section class="section-padding container">
+    <h2 class="text-center animate-on-scroll" style="margin-bottom: 50px;">Word on the <span class="accent-text">Street</span></h2>
+    
+    <div class="testi-masonry">
+      <div class="testi-card glass animate-on-scroll">
+        <span class="quote-mark">"</span>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">The Misal Pav here is out of this world! I've been coming here every Sunday for 3 years, and the taste never changes. Absolutely the best in Malegaon.</p>
+        <div class="testi-author">
+          <div class="author-initial">R</div>
+          <div>
+            <strong>Rahul S.</strong><br>
+            <span style="color:var(--text-muted); font-size:0.8rem;">Camp Area</span>
+          </div>
+        </div>
       </div>
-      <div class="footer-links">
-        <h4 style="color:white;">Quick Links</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="menu.html">Menu</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="contact.html">Contact & Reservations</a></li>
-        </ul>
+      
+      <div class="testi-card glass animate-on-scroll" style="transition-delay: 0.1s">
+        <span class="quote-mark">"</span>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">Their Chicken Frankie and Masala Pav are my go-to midnight snacks. The delivery is incredibly fast and the food is always piping hot.</p>
+        <div class="testi-author">
+          <div class="author-initial">A</div>
+          <div>
+            <strong>Amit K.</strong><br>
+            <span style="color:var(--text-muted); font-size:0.8rem;">Soygaon</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testi-card glass animate-on-scroll" style="transition-delay: 0.2s">
+        <span class="quote-mark">"</span>
+        <div class="stars">★★★★★</div>
+        <p class="testi-text">Finally found an authentic Maharashtra Thali that tastes exactly like home. The Zunka Bhakri takes me back to my childhood!</p>
+        <div class="testi-author">
+          <div class="author-initial">P</div>
+          <div>
+            <strong>Priya D.</strong><br>
+            <span style="color:var(--text-muted); font-size:0.8rem;">Sangmeshwar</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="copyright">
-      <p>&copy; 2024 Spice Garden Dhaba. Developed by Atharva.</p>
+  </section>
+
+  <!-- Special Offer Banner -->
+  <section class="offer-banner animate-on-scroll">
+    <div class="container glass" style="display:inline-block; padding: 40px; border-color: var(--primary);">
+      <h2 style="color:white; font-size: 2.5rem; margin:0;">Tonight's Special</h2>
+      <p class="accent-text" style="font-size: 2.5rem; margin:10px 0;">Maharashtra Thali @ ₹199</p>
+      
+      <div class="countdown" id="countdown">
+        <div class="cd-item"><span class="cd-num" id="cd-hours">04</span><span class="cd-label">Hours</span></div>
+        <div class="cd-item"><span class="cd-num" id="cd-minutes">20</span><span class="cd-label">Mins</span></div>
+        <div class="cd-item"><span class="cd-num" id="cd-seconds">45</span><span class="cd-label">Secs</span></div>
+      </div>
+      
+      <a href="https://wa.me/919876543210" target="_blank" class="btn-green" style="background:#25D366; color:white; border-color:#25D366; font-size:1.2rem;">
+        <i class="fa-brands fa-whatsapp"></i> Order Now on WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">🔥 Mirchi & Masala</div>
+          <p class="footer-desc">Where Every Bite Tells a Story. Experience the true taste of Malegaon's street food and traditional recipes.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div>
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Full Menu</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="contact.html">Book a Table</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li><i class="fa-solid fa-location-dot"></i> Shop 7, Station Road, Near Clock Tower, Malegaon - 423203</li>
+            <li><i class="fa-solid fa-phone"></i> +91-9876543210</li>
+            <li><i class="fa-solid fa-envelope"></i> hello@mirchimasala.com</li>
+            <li><i class="fa-solid fa-clock"></i> Mon-Sun: 11:00 AM - 11:30 PM</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Mirchi & Masala. Made with ❤️ in Malegaon.</p>
+      </div>
     </div>
   </footer>
 
-  <script src="js/main.js" defer></script>
-  <script src="js/home.js" defer></script>
-  <a href="https://wa.me/919876543210?text=Hi!%20I%20want%20to%20order%20from%20Spice%20Garden%20Dhaba" target="_blank" class="whatsapp-float" title="Order on WhatsApp">
-    💬
+  <a href="https://wa.me/919876543210" class="whatsapp-float" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
   </a>
-  <button class="back-to-top" id="backToTop">↑</button>
-</body>
 
+  <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
+</body>
 </html>

@@ -9,8 +9,48 @@ const fallbackImages = {
   'rice': 'https://images.unsplash.com/photo-1563379091339-03246963d51a?w=400&q=80',
   'desserts': 'https://images.unsplash.com/photo-1547592180-85f173990554?w=400&q=80',
   'beverages': 'https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=400&q=80',
-  'thali': 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&q=80'
+  'thali': 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&q=80',
+  'street_food': 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=400&q=80'
 };
+
+router.get('/menu/bestsellers', async (req, res) => {
+  try {
+    const [rows] = await req.db.execute(
+      `SELECT * FROM menu_items 
+       WHERE is_bestseller = 1 
+       AND is_available = 1 
+       LIMIT 6`
+    );
+    res.json({ success: true, data: rows });
+  } catch (error) {
+    res.status(500).json({ 
+      success: false, 
+      message: error.message 
+    });
+  }
+});
+
+router.get('/menu/:category', async (req, res) => {
+  try {
+    const { category } = req.params;
+    const [rows] = await req.db.execute(
+      'SELECT * FROM menu_items WHERE category = ? AND is_available = 1',
+      [category]
+    );
+    
+    const dishes = rows.map(dish => ({
+      ...dish,
+      image_url: dish.image_url || fallbackImages[dish.category]
+    }));
+    
+    res.json({ success: true, data: dishes });
+  } catch (error) {
+    res.status(500).json({ 
+      success: false, 
+      message: error.message 
+    });
+  }
+});
 
 router.get('/menu', async (req, res) => {
   try {
@@ -18,7 +58,6 @@ router.get('/menu', async (req, res) => {
       'SELECT * FROM menu_items WHERE is_available = 1 ORDER BY category, name'
     );
     
-    // Ensure every dish has a unique image
     const dishes = rows.map((dish, index) => ({
       ...dish,
       image_url: dish.image_url || 
@@ -36,46 +75,6 @@ router.get('/menu', async (req, res) => {
     res.status(500).json({ 
       success: false, 
       message: 'Failed to fetch menu' 
-    });
-  }
-});
-
-router.get('/menu/:category', async (req, res) => {
-  try {
-    const { category } = req.params;
-    const [rows] = await req.db.execute(
-      'SELECT * FROM menu_items WHERE category = ? AND is_available = 1',
-      [category]
-    );
-    
-    const dishes = rows.map(dish => ({
-      ...dish,
-      image_url: dish.image_url || 
-        fallbackImages[dish.category]
-    }));
-    
-    res.json({ success: true, data: dishes });
-  } catch (error) {
-    res.status(500).json({ 
-      success: false, 
-      message: error.message 
-    });
-  }
-});
-
-router.get('/menu/bestsellers', async (req, res) => {
-  try {
-    const [rows] = await req.db.execute(
-      `SELECT * FROM menu_items 
-       WHERE is_bestseller = 1 
-       AND is_available = 1 
-       LIMIT 6`
-    );
-    res.json({ success: true, data: rows });
-  } catch (error) {
-    res.status(500).json({ 
-      success: false, 
-      message: error.message 
     });
   }
 });

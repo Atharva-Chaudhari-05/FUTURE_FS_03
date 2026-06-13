@@ -1,139 +1,218 @@
-// FIX 1: Navbar JS
-const navbar = document.getElementById('navbar');
-if(navbar) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-}
+// Main functionality for all pages
 
-// Hamburger menu
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
-
-if(hamburger && navLinks) {
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('open');
-  });
-
-  // Close menu on link click
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      navLinks.classList.remove('open');
-    });
-  });
-}
-
-// Active link detection
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.getAttribute('href') === currentPage) {
-    link.classList.add('active');
-  }
-});
-
-
-// FIX 4: SCROLL ANIMATIONS NOT WORKING
 document.addEventListener('DOMContentLoaded', () => {
-  // Add animate classes to elements
-  const animateElements = [
-    { selector: '.section-title', class: 'animate-up' },
-    { selector: '.dish-card', class: 'animate-up' },
-    { selector: '.category-card', class: 'animate-up' },
-    { selector: '.feature-box', class: 'animate-up' },
-    { selector: '.team-card', class: 'animate-up' },
-    { selector: '.timeline-item', class: 'animate-left' },
-    { selector: '.contact-card', class: 'animate-up' },
-    { selector: '.gallery-item', class: 'animate-fade' },
-  ];
+    initCursor();
+    initLoader();
+    initNavbar();
+    initScrollAnimations();
+    initPageTransitions();
+});
 
-  animateElements.forEach(({ selector, class: cls }) => {
-    document.querySelectorAll(selector).forEach(
-      (el, i) => {
-        el.classList.add('scroll-hidden');
-        el.style.transitionDelay = `${(i % 10) * 0.1}s`;
-        el.setAttribute('data-animate', cls);
-      }
-    );
-  });
+// 1. Custom Cursor with Trail
+function initCursor() {
+    const cursor = document.getElementById('cursor');
+    if (!cursor) return;
 
-  // Observer
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const animClass = entry.target.getAttribute('data-animate');
-          entry.target.classList.remove('scroll-hidden');
-          entry.target.classList.add(animClass);
-          observer.unobserve(entry.target);
+    const trailCount = 10;
+    const trails = [];
+    
+    // Create trail elements
+    for(let i=0; i<trailCount; i++) {
+        const trail = document.createElement('div');
+        trail.className = 'cursor-trail';
+        document.body.appendChild(trail);
+        trails.push({ element: trail, x: 0, y: 0 });
+    }
+
+    let mouseX = 0, mouseY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    });
+
+    // Animate trails
+    function animateTrails() {
+        let x = mouseX, y = mouseY;
+        
+        trails.forEach((trail, index) => {
+            const nextTrail = trails[index + 1] || trails[0];
+            
+            trail.x += (x - trail.x) * 0.4;
+            trail.y += (y - trail.y) * 0.4;
+            
+            trail.element.style.transform = `translate(${trail.x}px, ${trail.y}px)`;
+            
+            x = trail.x;
+            y = trail.y;
+        });
+        
+        requestAnimationFrame(animateTrails);
+    }
+    animateTrails();
+    
+    // Hover effects for links and buttons
+    const interactables = document.querySelectorAll('a, button, .cat-pill, .time-slot, .faq-question');
+    interactables.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.style.transform = `translate(${mouseX}px, ${mouseY}px) scale(2)`;
+            cursor.style.backgroundColor = 'transparent';
+            cursor.style.border = '1px solid var(--primary)';
+        });
+        el.addEventListener('mouseleave', () => {
+            cursor.style.transform = `translate(${mouseX}px, ${mouseY}px) scale(1)`;
+            cursor.style.backgroundColor = 'var(--primary)';
+            cursor.style.border = 'none';
+        });
+    });
+}
+
+// 2. Page Loader
+function initLoader() {
+    const loader = document.getElementById('pageLoader');
+    const bar = document.getElementById('loaderBar');
+    if (!loader || !bar) return;
+
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += Math.random() * 15;
+        if (progress > 100) progress = 100;
+        bar.style.width = progress + '%';
+        
+        if (progress === 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.visibility = 'hidden';
+                }, 500);
+            }, 500);
         }
-      });
-    },
-    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-  );
-
-  document.querySelectorAll('.scroll-hidden').forEach(el => observer.observe(el));
-});
-
-// FIX 5: IMAGES NOT LOADING
-document.querySelectorAll('img').forEach(img => {
-  img.addEventListener('error', function() {
-    this.src = 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80';
-    this.alt = 'Spice Garden Dhaba Food';
-  });
-  
-  // Add lazy loading
-  img.setAttribute('loading', 'lazy');
-});
-
-// FIX 9: TOAST NOTIFICATION SYSTEM
-window.showToast = function(message, type = 'info') {
-  const container = document.getElementById('toastContainer') || createToastContainer();
-  
-  const toast = document.createElement('div');
-  toast.className = `toast toast-${type}`;
-  
-  const icons = {
-    success: '✅',
-    error: '❌',
-    info: 'ℹ️',
-    warning: '⚠️'
-  };
-  
-  toast.innerHTML = `
-    <span class="toast-icon">${icons[type]}</span>
-    <span class="toast-message">${message}</span>
-    <button class="toast-close" onclick="this.parentElement.remove()">✕</button>
-  `;
-  
-  container.appendChild(toast);
-  
-  setTimeout(() => {
-    toast.classList.add('toast-hide');
-    setTimeout(() => toast.remove(), 400);
-  }, 3000);
+    }, 100);
 }
 
-function createToastContainer() {
-  const div = document.createElement('div');
-  div.id = 'toastContainer';
-  div.className = 'toast-container';
-  document.body.appendChild(div);
-  return div;
+// 3. Navbar logic
+function initNavbar() {
+    const navbar = document.getElementById('navbar');
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    
+    // Scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Mobile Menu
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fa-solid fa-xmark"></i>' : 
+                '<i class="fa-solid fa-bars"></i>';
+        });
+    }
+    
+    updateCartBadge();
 }
 
-// FIX 10: Page loader
-window.addEventListener('load', () => {
-  const loader = document.getElementById('pageLoader');
-  if (loader) {
+function updateCartBadge() {
+    const cartCount = document.getElementById('cartCount');
+    if (cartCount) {
+        const cart = JSON.parse(localStorage.getItem('mirchiCart') || '[]');
+        cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+    }
+}
+
+// 4. Scroll Animations (Intersection Observer)
+function initScrollAnimations() {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                
+                // Number Counter
+                if (entry.target.classList.contains('stat-item') || entry.target.querySelector('.counter')) {
+                    const counter = entry.target.querySelector('.counter');
+                    if (counter && !counter.classList.contains('counted')) {
+                        counter.classList.add('counted');
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+                        
+                        const updateCounter = () => {
+                            current += step;
+                            if (current < target) {
+                                counter.textContent = Math.ceil(current) + (target > 100 ? '+' : '');
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.textContent = target + (target > 100 ? '+' : '');
+                            }
+                        };
+                        updateCounter();
+                    }
+                }
+                
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    elements.forEach(el => observer.observe(el));
+}
+
+// 5. Page Transitions
+function initPageTransitions() {
+    const transition = document.getElementById('pageTransition');
+    if (!transition) return;
+    
+    const links = document.querySelectorAll('a[href]:not([target="_blank"]):not([href^="#"])');
+    
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const destination = link.getAttribute('href');
+            if (destination === window.location.pathname.split('/').pop()) return;
+            
+            e.preventDefault();
+            transition.classList.add('active');
+            
+            setTimeout(() => {
+                window.location.href = destination;
+            }, 500);
+        });
+    });
+}
+
+// Global functions for cart
+window.addToCart = function(id, name, price, image) {
+    let cart = JSON.parse(localStorage.getItem('mirchiCart') || '[]');
+    const existing = cart.find(item => item.id === id);
+    
+    if (existing) {
+        existing.quantity += 1;
+    } else {
+        cart.push({ id, name, price: parseFloat(price), image, quantity: 1 });
+    }
+    
+    localStorage.setItem('mirchiCart', JSON.stringify(cart));
+    updateCartBadge();
+    
+    // Pulse animation on cart icon
+    const cartIcon = document.querySelector('.cart-icon-btn');
+    cartIcon.style.transform = 'scale(1.3)';
+    cartIcon.style.color = 'var(--primary)';
     setTimeout(() => {
-      loader.style.opacity = '0';
-      setTimeout(() => loader.remove(), 500);
-    }, 1500);
-  }
-});
+        cartIcon.style.transform = '';
+        cartIcon.style.color = '';
+    }, 300);
+    
+    if(window.renderCart) window.renderCart();
+}

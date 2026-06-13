@@ -20,7 +20,6 @@ router.post('/orders', async (req, res, next) => {
             return res.status(400).json({ success: false, message: 'Missing required order fields' });
         }
 
-        // Use transaction to ensure order and items are saved together
         const connection = await req.db.getConnection();
         await connection.beginTransaction();
 
@@ -68,7 +67,6 @@ router.get('/orders/:id', async (req, res, next) => {
 
         const order = rows[0];
         
-        // Get items for the order
         const [items] = await req.db.query(
             `SELECT oi.*, m.name, m.image_url FROM order_items oi 
              JOIN menu_items m ON oi.menu_item_id = m.id 

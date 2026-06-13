@@ -1,160 +1,57 @@
-# 🍛 Spice Garden Dhaba
+# Mirchi & Masala - Full Stack Restaurant Website
 
-> Authentic Indian Restaurant Website - 
-> Full Stack Web Development Internship Task 3
-> Future Interns | Track: FS | Repo: FUTURE_FS_03
+A dynamic, premium dark-themed full-stack restaurant website for Mirchi & Masala, featuring a modern glassmorphism UI. Built with Node.js, Express, and MySQL.
 
-![Spice Garden Dhaba](https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&q=80)
+## Features
+- **Dynamic Menu:** Categorized menu with filtering and sorting capabilities.
+- **Cart & Checkout:** Client-side cart management and a multi-step order placement modal.
+- **Reservations:** Real-time table booking system.
+- **Gallery:** Interactive image gallery with masonry layout and lightbox.
+- **Contact:** Functional contact messaging.
+- **Responsive Design:** Mobile-friendly with smooth animations and custom cursor.
+- **Dark Theme:** Premium aesthetics utilizing deep greens, vibrant oranges, and glassmorphic elements.
 
-## 🌟 Live Demo
-[View Live](https://github.com/Atharva-Chaudhari-05/FUTURE_FS_03)
+## Tech Stack
+- **Frontend:** HTML5, CSS3 (Variables, Grid, Flexbox, Animations), Vanilla JavaScript.
+- **Backend:** Node.js, Express.js.
+- **Database:** MySQL.
 
-## 📋 About The Project
-Spice Garden Dhaba is a complete full-stack restaurant 
-website built for an authentic Indian dhaba in Malegaon, 
-Maharashtra. Built as Task 3 of the Future Interns 
-Full Stack Web Development internship.
+## Setup Instructions
 
-The website allows customers to browse the menu, 
-add items to cart, place orders, book tables, and 
-contact the restaurant - all powered by a Node.js 
-backend and MySQL database.
+1. **Clone the repository:**
+   \`\`\`bash
+   git clone https://github.com/Atharva-Chaudhari-05/FUTURE_FS_03.git
+   cd FUTURE_FS_03/mirchi-masala
+   \`\`\`
 
-## 🛠️ Tech Stack
+2. **Install dependencies:**
+   \`\`\`bash
+   npm install
+   \`\`\`
 
-| Layer | Technology |
-|-------|-----------|
-| Frontend | HTML5, CSS3, Vanilla JavaScript |
-| Backend | Node.js + Express.js |
-| Database | MySQL + mysql2 |
-| Animations | CSS Keyframes + Intersection Observer |
-| Version Control | Git + GitHub |
+3. **Database Configuration:**
+   - Ensure MySQL is running.
+   - Run the schema script to create the database and tables:
+     \`\`\`bash
+     mysql -u root -p < database/schema.sql
+     \`\`\`
 
-## ✨ Key Features
+4. **Environment Variables:**
+   - Copy \`.env.example\` to \`.env\`:
+     \`\`\`bash
+     cp .env.example .env
+     \`\`\`
+   - Update the database credentials in \`.env\` if necessary.
 
-- ✅ 5 Fully Responsive Pages
-- ✅ Dynamic Menu from MySQL Database
-- ✅ Shopping Cart (Vanilla JS)
-- ✅ Order Placement System
-- ✅ Table Reservation System
-- ✅ WhatsApp Order Integration
-- ✅ Contact Form with DB Storage
-- ✅ Custom CSS Animations
-- ✅ Dark Mode Toggle
-- ✅ Page Loader
-- ✅ Toast Notifications
-- ✅ Mobile Responsive Design
-- ✅ SEO Meta Tags
+5. **Run the application:**
+   \`\`\`bash
+   npm run dev
+   \`\`\`
 
-## 📁 Project Structure
+6. **Open in browser:**
+   Navigate to \`http://localhost:3000\`
 
-spice-garden-dhaba/
-├── server.js
-├── package.json
-├── database/
-│   ├── schema.sql
-│   └── connection.js
-├── routes/
-│   ├── menu.js
-│   ├── order.js
-│   └── contact.js
-└── public/
-    ├── index.html
-    ├── menu.html
-    ├── about.html
-    ├── gallery.html
-    ├── contact.html
-    ├── css/
-    └── js/
-
-## ⚙️ Installation & Setup
-
-### Prerequisites
-- Node.js v18 or higher
-- MySQL installed locally
-- Git
-
-### Step 1: Clone Repository
-\`\`\`bash
-git clone https://github.com/Atharva-Chaudhari-05/FUTURE_FS_03.git
-cd FUTURE_FS_03
-\`\`\`
-
-### Step 2: Install Dependencies
-\`\`\`bash
-npm install
-\`\`\`
-
-### Step 3: Setup Database
-Open MySQL terminal and run:
-\`\`\`bash
-mysql -u root -p < database/schema.sql
-\`\`\`
-
-### Step 4: Configure Environment
-\`\`\`bash
-cp .env.example .env
-\`\`\`
-
-Then edit .env and add your MySQL password:
-\`\`\`
-DB_PASSWORD=your_actual_password
-\`\`\`
-
-### Step 5: Start the Server
-Development mode:
-\`\`\`bash
-npm run dev
-\`\`\`
-
-Production mode:
-\`\`\`bash
-npm start
-\`\`\`
-
-### Step 6: Open in Browser
-http://localhost:3000
-
-## 🔗 API Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /api/menu | Get all menu items |
-| GET | /api/menu/:category | Filter by category |
-| POST | /api/orders | Place new order |
-| GET | /api/orders/:id | Get order status |
-| POST | /api/contact | Send message |
-| POST | /api/reservations | Book a table |
-| GET | /api/gallery | Get gallery images |
-
-## 📸 Pages Overview
-
-| Page | Description |
-|------|-------------|
-| Home | Hero, Categories, Bestsellers, Testimonials |
-| Menu | Filter, Cart, Order Modal |
-| About | Story, Timeline, Team |
-| Gallery | Masonry Grid, Lightbox |
-| Contact | Forms, Reservation, FAQ, Map |
-
-## 👤 Author
-
-**Atharva Chaudhari**
-- GitHub: [@Atharva-Chaudhari-05](https://github.com/Atharva-Chaudhari-05)
-- Internship: Future Interns
-- Track: Full Stack Web Development
-- Task: FUTURE_FS_03
-
-## 🏢 About Future Interns
-
-This project was built as part of the Future Interns 
-Full Stack Web Development internship program.
-- Website: futureinterns.com
-- LinkedIn: linkedin.com/company/future-interns
-
-## 📄 License
-MIT License - feel free to use this project 
-as a reference.
-
----
-⭐ Star this repo if you found it helpful!
+## Owner Info
+- **Name:** Suresh Patil
+- **Location:** Malegaon, Maharashtra
+- **Tagline:** "Where Every Bite Tells a Story"
