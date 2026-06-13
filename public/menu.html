@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="description" content="Spice Garden Dhaba - Authentic Indian Restaurant serving traditional flavors of Maharashtra.">
+    <title>Menu | Spice Garden Dhaba</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- FIX 10: Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-logo">🍛</div>
+        <div class="loader-text">Spice Garden Dhaba</div>
+        <div class="loader-dots">
+            <span>.</span><span>.</span><span>.</span>
+        </div>
+    </div>
+
+    <!-- FIX 1: Navbar -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <span class="logo-icon">🍛</span>
+          <div class="logo-text">
+            <span class="logo-main">Spice Garden</span>
+            <span class="logo-sub">Dhaba</span>
+          </div>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="menu.html" class="nav-link active">Menu</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <span class="nav-phone">📞 +91-9876543210</span>
+          <button class="theme-toggle" id="themeToggle">
+            🌙
+          </button>
+          <div class="cart-icon" id="cartToggle" style="color:white; cursor:pointer; position:relative; font-size:1.2rem; margin-left:10px;">
+              <i class="fas fa-shopping-cart"></i>
+              <span id="cartCount" style="position:absolute; top:-10px; right:-10px; background:var(--primary); color:white; border-radius:50%; padding:2px 6px; font-size:0.7rem; font-weight:bold;">0</span>
+          </div>
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="page-header" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1920')">
+        <div class="container text-center animate-up">
+            <h1 style="color:white; font-size:4rem; font-family:var(--font-heading);">Our Menu</h1>
+            <div class="breadcrumb" style="color:white; margin-top:10px;">
+                <a href="index.html" style="color:var(--primary); text-decoration:none;">Home</a> &gt; <span>Menu</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container section-padding" style="display:flex; gap:30px; align-items:flex-start; position:relative;">
+        
+        <!-- MENU CONTENT -->
+        <div class="menu-content" style="flex:1;">
+            
+            <!-- Filter Bar -->
+            <div class="filter-bar animate-up" style="background:var(--white); padding:15px; border-radius:10px; box-shadow:var(--shadow); margin-bottom:30px; display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between; position:sticky; top:80px; z-index:100;">
+                
+                <div class="categories" style="display:flex; gap:10px; overflow-x:auto;">
+                    <button class="filter-tab active" data-category="all" style="padding:8px 15px; border:none; background:transparent; font-weight:600; cursor:pointer; border-bottom:2px solid var(--primary); color:var(--primary);">All</button>
+                    <button class="filter-tab" data-category="starters" style="padding:8px 15px; border:none; background:transparent; font-weight:600; cursor:pointer; border-bottom:2px solid transparent;">Starters</button>
+                    <button class="filter-tab" data-category="main_course" style="padding:8px 15px; border:none; background:transparent; font-weight:600; cursor:pointer; border-bottom:2px solid transparent;">Main Course</button>
+                    <button class="filter-tab" data-category="breads" style="padding:8px 15px; border:none; background:transparent; font-weight:600; cursor:pointer; border-bottom:2px solid transparent;">Breads</button>
+                    <button class="filter-tab" data-category="rice" style="padding:8px 15px; border:none; background:transparent; font-weight:600; cursor:pointer; border-bottom:2px solid transparent;">Rice</button>
+                    <button class="filter-tab" data-category="desserts" style="padding:8px 15px; border:none; background:transparent; font-weight:600; cursor:pointer; border-bottom:2px solid transparent;">Desserts</button>
+                </div>
+                
+                <div class="veg-filters" style="display:flex; gap:10px;">
+                    <button class="veg-toggle active" data-filter="all" style="padding:5px 10px; border:1px solid #ddd; border-radius:5px; background:white; cursor:pointer;">All</button>
+                    <button class="veg-toggle" data-filter="veg" style="padding:5px 10px; border:1px solid #2e7d32; color:#2e7d32; border-radius:5px; background:white; cursor:pointer;">Veg</button>
+                    <button class="veg-toggle" data-filter="non-veg" style="padding:5px 10px; border:1px solid #c62828; color:#c62828; border-radius:5px; background:white; cursor:pointer;">Non-Veg</button>
+                </div>
+            </div>
+
+            <!-- MENU GRID -->
+            <div class="dishes-grid" id="menuGrid">
+                <!-- Items loaded via menu.js -->
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- CART SIDEBAR -->
+    <div id="cartOverlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1001; opacity:0; visibility:hidden; transition:var(--transition);"></div>
+    <div id="cartSidebar" style="position:fixed; top:0; right:-400px; width:400px; max-width:100%; height:100vh; background:var(--white); z-index:1002; transition:right 0.4s ease; display:flex; flex-direction:column; box-shadow:-5px 0 20px rgba(0,0,0,0.1);">
+        <div style="padding:20px; background:var(--primary); color:white; display:flex; justify-content:space-between; align-items:center;">
+            <h3 style="font-family:var(--font-heading); margin:0;">Your Order</h3>
+            <button id="cartClose" style="background:none; border:none; color:white; font-size:1.5rem; cursor:pointer;">&times;</button>
+        </div>
+        
+        <div id="cartItems" style="flex:1; overflow-y:auto; padding:20px; display:flex; flex-direction:column; gap:15px;">
+            <!-- Cart items go here -->
+        </div>
+        
+        <div style="padding:20px; border-top:1px solid #eee; background:#fafafa;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+                <span>Subtotal:</span>
+                <strong id="cartSubtotal">₹0.00</strong>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:15px; color:var(--gray); font-size:0.9rem;">
+                <span>GST (5%):</span>
+                <span>Included</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:20px; font-size:1.2rem; border-top:1px dashed #ccc; padding-top:10px;">
+                <strong>Total:</strong>
+                <strong id="cartTotal" style="color:var(--secondary);">₹0.00</strong>
+            </div>
+            <button class="btn btn-primary w-100" style="width:100%; padding:15px; border-radius:5px; background:var(--primary); color:white; border:none; font-weight:bold; cursor:pointer;" onclick="showToast('Checkout functionality coming soon!', 'info')">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:30px; padding:40px 20px; background:#111; color:white; margin-top:50px;">
+            <div>
+                <h3 class="footer-logo" style="color:var(--primary); font-family:var(--font-heading);">Spice Garden Dhaba</h3>
+                <p style="color:#ccc;">Authentic recipes passed down 3 generations. Experience the true taste of India.</p>
+            </div>
+            <div class="footer-links">
+                <h4 style="color:white;">Quick Links</h4>
+                <ul style="list-style:none; padding:0; line-height:2;">
+                    <li><a href="index.html" style="color:#ccc; text-decoration:none;">Home</a></li>
+                    <li><a href="menu.html" style="color:#ccc; text-decoration:none;">Menu</a></li>
+                    <li><a href="contact.html" style="color:#ccc; text-decoration:none;">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/menu.js" defer></script>
+  <a href="https://wa.me/919876543210?text=Hi!%20I%20want%20to%20order%20from%20Spice%20Garden%20Dhaba" target="_blank" class="whatsapp-float" title="Order on WhatsApp">
+    💬
+  </a>
+  <button class="back-to-top" id="backToTop">↑</button>
+</body>
+</html>

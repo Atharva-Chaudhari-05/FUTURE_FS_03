@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="description" content="Spice Garden Dhaba - Authentic Indian Restaurant serving traditional flavors of Maharashtra.">
+    <title>About Us | Spice Garden Dhaba</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- FIX 10: Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-logo">🍛</div>
+        <div class="loader-text">Spice Garden Dhaba</div>
+        <div class="loader-dots">
+            <span>.</span><span>.</span><span>.</span>
+        </div>
+    </div>
+
+    <!-- FIX 1: Navbar -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <span class="logo-icon">🍛</span>
+          <div class="logo-text">
+            <span class="logo-main">Spice Garden</span>
+            <span class="logo-sub">Dhaba</span>
+          </div>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="menu.html" class="nav-link">Menu</a></li>
+          <li><a href="about.html" class="nav-link active">About</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <span class="nav-phone">📞 +91-9876543210</span>
+          <button class="btn-order" onclick="location.href='menu.html'">
+            Order Now
+          </button>
+          <button class="theme-toggle" id="themeToggle">
+            🌙
+          </button>
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="page-header" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920')">
+        <div class="container text-center animate-up">
+            <h1 style="color:white; font-size:4rem; font-family:var(--font-heading);">Our Story</h1>
+            <div class="breadcrumb" style="color:white; margin-top:10px;">
+                <a href="index.html" style="color:var(--primary); text-decoration:none;">Home</a> &gt; <span>About Us</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 1: HERO STORY -->
+    <section class="section-padding container">
+        <div class="story-split" style="display:flex; gap:50px; align-items:center; flex-wrap:wrap;">
+            <div class="story-img animate-left" style="flex:1; min-width:300px; position:relative;">
+                <!-- FIX 5: Use Unsplash Image -->
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Cooking authentic food" style="width:100%; border-radius:10px; box-shadow:var(--shadow);" loading="lazy">
+                <div class="experience-badge" style="position:absolute; bottom:-30px; right:-30px; background:var(--primary); color:white; width:150px; height:150px; border-radius:50%; display:flex; flex-direction:column; justify-content:center; align-items:center; border:10px solid var(--bg); text-align:center;">
+                    <h2 style="font-family:var(--font-heading); font-size:2rem;">15+</h2>
+                    <p style="font-size:0.9rem;">Years of Excellence</p>
+                </div>
+            </div>
+            <div class="story-content animate-right" style="flex:1; min-width:300px;">
+                <h2 class="accent-text" style="color:var(--primary); font-family:'Dancing Script', cursive; font-size:1.5rem;">Welcome to Spice Garden</h2>
+                <h2 style="font-family:var(--font-heading); font-size:2.5rem; margin-bottom:20px; color:var(--accent);">A Legacy of Authentic Flavors</h2>
+                <p style="margin-bottom:20px; font-size:1.1rem; color:var(--gray); line-height:1.8;">What started as a small roadside eatery in 2009 has blossomed into the city's most beloved authentic Indian Dhaba. Our founder, Ramesh Ji, believed in one simple philosophy: serve food that tastes exactly like a mother's home-cooked meal.</p>
+                <p style="margin-bottom:20px; font-size:1.1rem; color:var(--gray); line-height:1.8;">We handpick our spices, grind our own masalas, and slow-cook our dishes to preserve the rich heritage of Indian culinary traditions. Every dish that comes out of our kitchen is a tribute to the diverse and vibrant flavors of India.</p>
+                <h4 style="margin-top:20px; font-family:var(--font-heading); color:var(--secondary); font-size:1.2rem;">- Ramesh Ji, Founder</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: VALUES -->
+    <section class="values-section" style="background:var(--secondary); color:white; padding:80px 0;">
+        <div class="container">
+            <div class="values-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:40px;">
+                <div class="value-card animate-up" style="animation-delay: 0.1s; text-align:center; padding:30px; border:1px solid rgba(255,255,255,0.1); border-radius:10px; background:rgba(0,0,0,0.2);">
+                    <i class="fas fa-seedling" style="font-size:3rem; color:var(--primary); margin-bottom:20px;"></i>
+                    <h3 style="font-family:var(--font-heading); margin-bottom:15px;">Quality Ingredients</h3>
+                    <p style="color:#eee; line-height:1.6;">We source 100% organic, farm-fresh vegetables and premium spices daily to ensure the highest quality in every bite.</p>
+                </div>
+                <div class="value-card animate-up" style="animation-delay: 0.3s; text-align:center; padding:30px; border:1px solid rgba(255,255,255,0.1); border-radius:10px; background:rgba(0,0,0,0.2);">
+                    <i class="fas fa-fire-burner" style="font-size:3rem; color:var(--primary); margin-bottom:20px;"></i>
+                    <h3 style="font-family:var(--font-heading); margin-bottom:15px;">Authentic Process</h3>
+                    <p style="color:#eee; line-height:1.6;">No shortcuts. Our Dal Makhani simmers overnight on slow coals, and our breads are baked in traditional clay tandoors.</p>
+                </div>
+                <div class="value-card animate-up" style="animation-delay: 0.5s; text-align:center; padding:30px; border:1px solid rgba(255,255,255,0.1); border-radius:10px; background:rgba(0,0,0,0.2);">
+                    <i class="fas fa-heart" style="font-size:3rem; color:var(--primary); margin-bottom:20px;"></i>
+                    <h3 style="font-family:var(--font-heading); margin-bottom:15px;">Heartfelt Service</h3>
+                    <p style="color:#eee; line-height:1.6;">At our Dhaba, every guest is treated like family. Experience true Indian hospitality with our warm and welcoming staff.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: TIMELINE -->
+    <section class="section-padding" style="background:var(--card-bg);">
+        <div class="container">
+            <div class="text-center animate-fade">
+                <p class="section-label">Our Journey</p>
+                <h2 class="section-title">Milestones of Success</h2>
+            </div>
+            
+            <div class="timeline" style="position:relative; max-width:1000px; margin:60px auto 0;">
+                <div class="timeline-item left animate-left">
+                    <div class="timeline-content">
+                        <h3>2009</h3>
+                        <h4>Humble Beginnings</h4>
+                        <p>Founded by Ramesh Ji in a small roadside stall with just 4 tables, serving basic thalis.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right animate-right">
+                    <div class="timeline-content">
+                        <h3>2012</h3>
+                        <h4>First Permanent Location</h4>
+                        <p>Moved to our current brick-and-mortar location with seating for 40 guests.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left animate-left">
+                    <div class="timeline-content">
+                        <h3>2015</h3>
+                        <h4>Award Winning Taste</h4>
+                        <p>Voted "Best Local Dhaba" by the City Food Association.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: MEET THE TEAM -->
+<section class="team-section">
+  <div class="container">
+    <p class="section-label">
+      The Faces Behind the Food
+    </p>
+    <h2 class="section-title">Meet Our Team</h2>
+    
+    <div class="team-grid">
+    
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <img 
+            src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&q=80"
+            alt="Ramesh Kumar - Head Chef"
+            class="team-img"
+            onerror="this.src='https://ui-avatars.com/api/?name=Ramesh+Kumar&background=D4A017&color=fff&size=200'"
+          />
+          <div class="team-overlay">
+            <p class="team-quote">
+              "Food is not just nutrition, 
+              it's an emotion"
+            </p>
+          </div>
+        </div>
+        <div class="team-info">
+          <h3>Ramesh Kumar</h3>
+          <span class="team-role">Head Chef & Founder</span>
+          <p>Master of spices with 30+ years of 
+          culinary experience in authentic 
+          North Indian cuisine.</p>
+        </div>
+      </div>
+      
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <img 
+            src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=400&q=80"
+            alt="Priya Sharma - Sous Chef"
+            class="team-img"
+            onerror="this.src='https://ui-avatars.com/api/?name=Priya+Sharma&background=8B1A1A&color=fff&size=200'"
+          />
+          <div class="team-overlay">
+            <p class="team-quote">
+              "Every dish tells a story 
+              of its own"
+            </p>
+          </div>
+        </div>
+        <div class="team-info">
+          <h3>Priya Sharma</h3>
+          <span class="team-role">Sous Chef</span>
+          <p>Specialist in tandoori dishes and 
+          traditional Maharashtra breads 
+          with 12 years experience.</p>
+        </div>
+      </div>
+      
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <img 
+            src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80"
+            alt="Vikram Singh - Manager"
+            class="team-img"
+            onerror="this.src='https://ui-avatars.com/api/?name=Vikram+Singh&background=2C1810&color=fff&size=200'"
+          />
+          <div class="team-overlay">
+            <p class="team-quote">
+              "Your satisfaction is our 
+              greatest achievement"
+            </p>
+          </div>
+        </div>
+        <div class="team-info">
+          <h3>Vikram Singh</h3>
+          <span class="team-role">Restaurant Manager</span>
+          <p>Ensures every guest leaves with 
+          a smile. 8 years in hospitality 
+          management.</p>
+        </div>
+      </div>
+      
+      <div class="team-card">
+        <div class="team-img-wrap">
+          <img 
+            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80"
+            alt="Suresh Patel - Delivery Head"
+            class="team-img"
+            onerror="this.src='https://ui-avatars.com/api/?name=Suresh+Patel&background=D4A017&color=fff&size=200'"
+          />
+          <div class="team-overlay">
+            <p class="team-quote">
+              "Hot food delivered 
+              with a warm smile"
+            </p>
+          </div>
+        </div>
+        <div class="team-info">
+          <h3>Suresh Patel</h3>
+          <span class="team-role">Delivery Head</span>
+          <p>Manages our delivery fleet ensuring 
+          your food arrives hot and 
+          on time, every time.</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:30px; padding:40px 20px; background:#111; color:white;">
+            <div>
+                <h3 class="footer-logo" style="color:var(--primary); font-family:var(--font-heading);">Spice Garden Dhaba</h3>
+                <p style="color:#ccc;">Authentic recipes passed down 3 generations. Experience the true taste of India.</p>
+            </div>
+            <div class="footer-links">
+                <h4 style="color:white;">Quick Links</h4>
+                <ul style="list-style:none; padding:0; line-height:2;">
+                    <li><a href="index.html" style="color:#ccc; text-decoration:none;">Home</a></li>
+                    <li><a href="menu.html" style="color:#ccc; text-decoration:none;">Menu</a></li>
+                    <li><a href="contact.html" style="color:#ccc; text-decoration:none;">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+  <a href="https://wa.me/919876543210?text=Hi!%20I%20want%20to%20order%20from%20Spice%20Garden%20Dhaba" target="_blank" class="whatsapp-float" title="Order on WhatsApp">
+    💬
+  </a>
+  <button class="back-to-top" id="backToTop">↑</button>
+</body>
+</html>

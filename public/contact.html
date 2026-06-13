@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="description" content="Spice Garden Dhaba - Authentic Indian Restaurant serving traditional flavors of Maharashtra.">
+    <title>Contact & Reservations | Spice Garden Dhaba</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- FIX 10: Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-logo">🍛</div>
+        <div class="loader-text">Spice Garden Dhaba</div>
+        <div class="loader-dots">
+            <span>.</span><span>.</span><span>.</span>
+        </div>
+    </div>
+
+    <!-- FIX 1: Navbar -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <span class="logo-icon">🍛</span>
+          <div class="logo-text">
+            <span class="logo-main">Spice Garden</span>
+            <span class="logo-sub">Dhaba</span>
+          </div>
+        </div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="menu.html" class="nav-link">Menu</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <span class="nav-phone">📞 +91-9876543210</span>
+          <button class="btn-order" onclick="location.href='menu.html'">
+            Order Now
+          </button>
+          <button class="theme-toggle" id="themeToggle">
+            🌙
+          </button>
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="page-header" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=1920')">
+        <div class="container text-center animate-up">
+            <h1 style="color:white; font-size:4rem; font-family:var(--font-heading);">Get in Touch</h1>
+            <div class="breadcrumb" style="color:white; margin-top:10px;">
+                <a href="index.html" style="color:var(--primary); text-decoration:none;">Home</a> &gt; <span>Contact</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 1: CONTACT INFO CARDS -->
+    <section class="section-padding container">
+        <div class="contact-info-grid">
+            <div class="info-card animate-up" style="animation-delay:0.1s">
+                <div class="icon-wrap"><i class="fas fa-map-marker-alt"></i></div>
+                <h3>Visit Us</h3>
+                <p>123, Main Market<br>Malegaon, Maharashtra</p>
+            </div>
+            <div class="info-card animate-up" style="animation-delay:0.2s">
+                <div class="icon-wrap"><i class="fas fa-phone-alt"></i></div>
+                <h3>Call Us</h3>
+                <p>+91-9876543210<br>+91-9876543211</p>
+            </div>
+            <div class="info-card animate-up" style="animation-delay:0.3s">
+                <div class="icon-wrap"><i class="fas fa-envelope"></i></div>
+                <h3>Email Us</h3>
+                <p>info@spicegarden.com<br>events@spicegarden.com</p>
+            </div>
+            <div class="info-card animate-up" style="animation-delay:0.4s">
+                <div class="icon-wrap"><i class="fas fa-clock"></i></div>
+                <h3>Opening Hours</h3>
+                <p>Mon-Sun<br>7:00 AM - 11:00 PM</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2 & 3: FORMS -->
+    <section class="section-padding" style="background:var(--card-bg);" id="reservations">
+        <div class="container">
+            <div class="forms-container">
+                <!-- Contact Form -->
+                <div class="form-box animate-left">
+                    <h2 class="accent-text mb-3" style="font-family:var(--font-heading); color:var(--primary);">Drop a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="contactName" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group w-50">
+                                <input type="email" id="contactEmail" placeholder="Email Address" required>
+                            </div>
+                            <div class="form-group w-50">
+                                <input type="tel" id="contactPhone" placeholder="Phone Number (10 digits)" required pattern="[0-9]{10}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <select id="contactSubject" class="form-control" required>
+                                <option value="" disabled selected>Select Subject</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Feedback">Feedback</option>
+                                <option value="Catering">Catering</option>
+                                <option value="Partnership">Partnership</option>
+                                <option value="Complaint">Complaint</option>
+                            </select>
+                        </div>
+                        <div class="form-group position-relative">
+                            <textarea id="contactMessage" placeholder="Your Message (min 20 chars)" rows="5" required minlength="20"></textarea>
+                            <span class="char-count" id="charCount">0/500</span>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100" id="contactSubmitBtn" style="padding:15px; border-radius:5px; background:var(--primary); color:white; border:none; font-weight:bold; cursor:pointer;">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Reservation Form -->
+                <div class="form-box animate-right">
+                    <h2 class="accent-text mb-3" style="font-family:var(--font-heading); color:var(--primary);">Book a Table</h2>
+                    <form id="reservationForm">
+                        <div class="form-group">
+                            <input type="text" id="resName" placeholder="Guest Name" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group w-50">
+                                <input type="tel" id="resPhone" placeholder="Phone Number" required pattern="[0-9]{10}">
+                            </div>
+                            <div class="form-group w-50">
+                                <input type="email" id="resEmail" placeholder="Email (Optional)">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group w-50">
+                                <input type="date" id="resDate" required>
+                            </div>
+                            <div class="form-group w-50">
+                                <select id="resTime" class="form-control" required>
+                                    <option value="" disabled selected>Select Time</option>
+                                    <!-- Options generated by JS -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label style="color:var(--gray); font-size:0.9rem;">Number of Guests</label>
+                            <div class="stepper">
+                                <button type="button" onclick="updateGuests(-1)">-</button>
+                                <input type="number" id="resGuests" value="2" min="1" max="20" readonly>
+                                <button type="button" onclick="updateGuests(1)">+</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="resRequests" placeholder="Special Requests (e.g. window seat, anniversary)" rows="2"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100" id="resSubmitBtn" style="padding:15px; border-radius:5px; background:var(--primary); color:white; border:none; font-weight:bold; cursor:pointer;">Confirm Reservation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: GOOGLE MAPS -->
+    <section>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3749.123456789012!2d73.1234567!3d20.1234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDA3JzI0LjQiTiA3M8KwMDcnMjQuNCJF!5e0!3m2!1sen!2sin!4v1612345678901!5m2!1sen!2sin" width="100%" height="450" style="border:0; display:block;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container footer-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:30px; padding:40px 20px; background:#111; color:white;">
+            <div>
+                <h3 class="footer-logo" style="color:var(--primary); font-family:var(--font-heading);">Spice Garden Dhaba</h3>
+                <p style="color:#ccc;">Authentic recipes passed down 3 generations. Experience the true taste of India.</p>
+            </div>
+            <div class="footer-links">
+                <h4 style="color:white;">Quick Links</h4>
+                <ul style="list-style:none; padding:0; line-height:2;">
+                    <li><a href="index.html" style="color:#ccc; text-decoration:none;">Home</a></li>
+                    <li><a href="menu.html" style="color:#ccc; text-decoration:none;">Menu</a></li>
+                    <li><a href="contact.html" style="color:#ccc; text-decoration:none;">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/contact.js" defer></script>
+  <a href="https://wa.me/919876543210?text=Hi!%20I%20want%20to%20order%20from%20Spice%20Garden%20Dhaba" target="_blank" class="whatsapp-float" title="Order on WhatsApp">
+    💬
+  </a>
+  <button class="back-to-top" id="backToTop">↑</button>
+</body>
+</html>
