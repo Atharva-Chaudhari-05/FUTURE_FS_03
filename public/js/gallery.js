@@ -28,7 +28,7 @@ async function fetchGallery() {
                     { id: 3, image_url: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80', title: 'Busy Kitchen', category: 'kitchen' },
                     { id: 4, image_url: 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=800&q=80', title: 'Vada Pav', category: 'food' },
                     { id: 5, image_url: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80', title: 'Reserved Table', category: 'ambiance' },
-                    { id: 6, image_url: 'https://images.unsplash.com/photo-1589301760014-d929f39ce9b0?w=800&q=80', title: 'Street Food Spread', category: 'food' }
+                    { id: 6, image_url: 'https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=800&q=80', title: 'Street Food Spread', category: 'food' }
                 ];
             }
             

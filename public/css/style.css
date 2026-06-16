@@ -890,3 +890,12 @@ a:hover {
   background: rgba(255,107,53,0.1);
   border-color: var(--primary);
 }
+
+/* Categories Pills Shared */
+.categories-scroll { display: flex; gap: 15px; overflow-x: auto; padding: 20px 5px; scrollbar-width: none; }
+.categories-scroll::-webkit-scrollbar { display: none; }
+.cat-pill { display: flex; align-items: center; gap: 10px; padding: 12px 25px; background: var(--glass-light-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; color: var(--light-text); font-weight: 600; white-space: nowrap; cursor: pointer; transition: var(--transition); }
+.dark-section .cat-pill { background: var(--bg-tertiary); color: var(--dark-text); }
+.light-section .cat-pill { background: #FFFFFF; color: var(--light-text); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+.cat-pill:hover, .cat-pill.active { background: var(--primary) !important; border-color: var(--primary) !important; color: white !important; box-shadow: var(--glow) !important; transform: translateY(-2px); }
+.cat-pill span { font-size: 1.2rem; }

@@ -6,7 +6,7 @@ const fallbackImages = {
   'starters': 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&q=80',
   'main_course': 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=400&q=80',
   'breads': 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=400&q=80',
-  'rice': 'https://images.unsplash.com/photo-1563379091339-03246963d51a?w=400&q=80',
+  'rice': 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&q=80',
   'desserts': 'https://images.unsplash.com/photo-1547592180-85f173990554?w=400&q=80',
   'beverages': 'https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=400&q=80',
   'thali': 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&q=80',
