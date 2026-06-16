@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story | Mirchi & Masala</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+  <div class="custom-cursor" id="cursor"></div>
+
+  <!-- Page Transition Element -->
+  <div class="page-transition" id="pageTransition"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">🔥</span>
+        <span class="logo-text">Mirchi & Masala</span>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html" class="active">Our Story</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      
+      <div class="nav-right">
+        <button class="cart-icon-btn" onclick="window.location.href='menu.html'">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+        <a href="contact.html#reservation" class="btn-green">Book Table</a>
+        <button class="hamburger" id="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="about-hero dark-section">
+    <div class="container animate-on-scroll">
+      <h1>Our Story 📖</h1>
+      <p class="accent-text" style="font-size:2rem; margin-top:10px;">Where passion meets the plate</p>
+    </div>
+  </header>
+
+  <div class="hidden-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,100 L1440,100 L1440,40 Q720,0 0,40 Z" fill="#FFF9F2"/>
+    </svg>
+  </div>
+
+  <!-- Story Section -->
+  <section class="section-padding dark-section">
+    <div class="container story-grid">
+      <div class="animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=80" alt="Restaurant Interior" class="story-img">
+      </div>
+      <div class="story-text animate-on-scroll" style="transition-delay:0.2s">
+        <h2>From a Small Stall to <span class="accent-text">Malegaon's Favorite</span></h2>
+        <p>In 2010, Suresh Patil started Mirchi & Masala with nothing but a small pushcart, a secret family spice mix, and a dream. What began as a humble street food stall serving only Vada Pav and Misal Pav quickly became the talk of the town.</p>
+        <p>Word of mouth spread, and by 2015, we opened our first brick-and-mortar restaurant. Today, Mirchi & Masala stands as a testament to the fact that authentic flavors and hard work never go out of style.</p>
+        <p>We now serve over 500 happy customers every day, offering a menu that perfectly balances the quick thrill of street food with the soul-satisfying comfort of traditional Maharashtra Thalis.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="timeline-section dark-section section-padding">
+    <div class="container">
+      <h2 class="text-center animate-on-scroll" style="margin-bottom:40px;">Our Journey 🚀</h2>
+    </div>
+    
+    <div class="timeline-wrapper container">
+      <div class="timeline-line"></div>
+      
+      <div class="timeline-card dark-section animate-on-scroll" style="padding: 20px; border-radius: var(--radius); border: 1px solid var(--border);">
+        <div class="timeline-year">2010</div>
+        <h4 style="color:var(--dark-text);">The Beginning</h4>
+        <p style="color:var(--dark-text-muted);">Suresh Patil opens a small street stall with just two dishes.</p>
+      </div>
+      
+      <div class="timeline-card dark-section animate-on-scroll" style="transition-delay:0.1s; padding: 20px; border-radius: var(--radius); border: 1px solid var(--border);">
+        <div class="timeline-year">2012</div>
+        <h4 style="color:var(--dark-text);">First Expansion</h4>
+        <p style="color:var(--dark-text-muted);">Added a seating area and expanded the menu to 15 items.</p>
+      </div>
+      
+      <div class="timeline-card dark-section animate-on-scroll" style="transition-delay:0.2s; padding: 20px; border-radius: var(--radius); border: 1px solid var(--border);">
+        <div class="timeline-year">2015</div>
+        <h4 style="color:var(--dark-text);">The Restaurant</h4>
+        <p style="color:var(--dark-text-muted);">Moved into our current location on Station Road.</p>
+      </div>
+      
+      <div class="timeline-card dark-section animate-on-scroll" style="transition-delay:0.3s; padding: 20px; border-radius: var(--radius); border: 1px solid var(--border);">
+        <div class="timeline-year">2018</div>
+        <h4 style="color:var(--dark-text);">Thali Introduced</h4>
+        <p style="color:var(--dark-text-muted);">Launched the famous Maharashtra Thali, an instant hit.</p>
+      </div>
+      
+      <div class="timeline-card dark-section animate-on-scroll" style="transition-delay:0.4s; padding: 20px; border-radius: var(--radius); border: 1px solid var(--border);">
+        <div class="timeline-year">2021</div>
+        <h4 style="color:var(--dark-text);">Going Digital</h4>
+        <p style="color:var(--dark-text-muted);">Started online delivery, reaching 10,000+ orders.</p>
+      </div>
+      
+      <div class="timeline-card dark-section animate-on-scroll" style="transition-delay:0.5s; padding: 20px; border-radius: var(--radius); border: 1px solid var(--border);">
+        <div class="timeline-year">2024</div>
+        <h4 style="color:var(--dark-text);">Present Day</h4>
+        <p style="color:var(--dark-text-muted);">50+ dishes, 500+ daily customers, still the same great taste.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="hidden-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,0 L1440,0 L1440,60 Q720,100 0,60 Z" fill="#14181F"/>
+    </svg>
+  </div>
+
+  <!-- Values Section -->
+  <section class="section-padding dark-section">
+    <div class="container">
+      <h2 class="text-center animate-on-scroll" style="margin-bottom:50px;">What We <span class="accent-text">Stand For</span></h2>
+      
+      <div class="values-grid">
+        <div class="value-card glass-dark animate-on-scroll">
+          <div class="value-icon">🌶️</div>
+          <h3>Authentic Flavors</h3>
+          <p>We refuse to tone down the heat or compromise on traditional recipes. You get the real deal every time.</p>
+        </div>
+        
+        <div class="value-card glass-dark animate-on-scroll" style="transition-delay:0.1s">
+          <div class="value-icon">🤝</div>
+          <h3>Community First</h3>
+          <p>We source our ingredients locally to support farmers and businesses right here in Maharashtra.</p>
+        </div>
+        
+        <div class="value-card glass-dark animate-on-scroll" style="transition-delay:0.2s">
+          <div class="value-icon">⚡</div>
+          <h3>Always Fresh</h3>
+          <p>No shortcuts. Our food is cooked fresh daily using ingredients brought in that very morning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hidden-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,100 L1440,100 L1440,40 Q720,0 0,40 Z" fill="#FFF9F2"/>
+    </svg>
+  </div>
+
+  <!-- Team Section -->
+  <section class="section-padding dark-section">
+    <div class="container">
+      <h2 class="text-center animate-on-scroll" style="margin-bottom:50px;">The People Behind the Plate 👨‍🍳</h2>
+      
+      <div class="team-row-1">
+        <div class="team-card animate-on-scroll">
+          <div class="team-img-wrap">
+            <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&q=80" alt="Suresh Patil">
+          </div>
+          <h3>Suresh Patil</h3>
+          <p class="team-role">Founder & Head Chef</p>
+          <div class="team-quote">"Cooking is not a job, it's a responsibility to feed souls."</div>
+        </div>
+        
+        <div class="team-card animate-on-scroll" style="transition-delay:0.2s">
+          <div class="team-img-wrap">
+            <img src="https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=400&q=80" alt="Karan Patil">
+          </div>
+          <h3>Karan Patil</h3>
+          <p class="team-role">Co-Founder & Manager</p>
+          <div class="team-quote">"We treat every customer like a guest in our own home."</div>
+        </div>
+      </div>
+      
+      <div class="team-row-2">
+        <div class="team-card animate-on-scroll">
+          <div class="team-img-wrap">
+            <img src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=400&q=80" alt="Raju Shinde">
+          </div>
+          <h3>Raju Shinde</h3>
+          <p class="team-role">Sous Chef</p>
+          <div class="team-quote">"Spices are my paint, the plate is my canvas."</div>
+        </div>
+        
+        <div class="team-card animate-on-scroll" style="transition-delay:0.1s">
+          <div class="team-img-wrap">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&q=80" alt="Deepak More">
+          </div>
+          <h3>Deepak More</h3>
+          <p class="team-role">Delivery Manager</p>
+          <div class="team-quote">"Hot food, fast delivery. That's my promise."</div>
+        </div>
+        
+        <div class="team-card animate-on-scroll" style="transition-delay:0.2s">
+          <div class="team-img-wrap">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80" alt="Anita Borse">
+          </div>
+          <h3>Anita Borse</h3>
+          <p class="team-role">Cashier & Reception</p>
+          <div class="team-quote">"A smile is the best appetizer."</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hidden-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,0 L1440,0 L1440,60 Q720,100 0,60 Z" fill="#14181F"/>
+    </svg>
+  </div>
+
+  <!-- Stats Footer Section -->
+  <section class="stats-footer dark-section animate-on-scroll" style="background: linear-gradient(to right, var(--dark-bg), var(--dark-bg-2)); padding: 60px 0;">
+    <div class="container sf-grid">
+      <div class="sf-item glass-dark" style="padding: 30px; text-align: center;">
+        <span class="sf-num">500+</span>
+        <span class="sf-label">Daily Customers</span>
+      </div>
+      <div class="sf-item glass-dark" style="padding: 30px; text-align: center;">
+        <span class="sf-num">50+</span>
+        <span class="sf-label">Dishes</span>
+      </div>
+      <div class="sf-item glass-dark" style="padding: 30px; text-align: center;">
+        <span class="sf-num">15</span>
+        <span class="sf-label">Years</span>
+      </div>
+      <div class="sf-item glass-dark" style="padding: 30px; text-align: center;">
+        <span class="sf-num">4.9</span>
+        <span class="sf-label">Rating</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer dark-section">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">🔥 Mirchi & Masala</div>
+          <p class="footer-desc">Where Every Bite Tells a Story. Experience the true taste of Malegaon's street food and traditional recipes.</p>
+        </div>
+        
+        <div>
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li><i class="fa-solid fa-location-dot"></i> Shop 7, Station Road, Near Clock Tower, Malegaon - 423203</li>
+            <li><i class="fa-solid fa-phone"></i> +91-9876543210</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Mirchi & Masala. Made with ❤️ in Malegaon.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

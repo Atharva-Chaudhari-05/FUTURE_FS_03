@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Menu | Mirchi & Masala</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+  <div class="custom-cursor" id="cursor"></div>
+
+  <!-- Page Transition Element -->
+  <div class="page-transition" id="pageTransition"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">🔥</span>
+        <span class="logo-text">Mirchi & Masala</span>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html" class="active">Menu</a></li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      
+      <div class="nav-right">
+        <button class="cart-icon-btn" onclick="toggleCart()">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <a href="contact.html#reservation" class="btn-green">Book Table</a>
+        <button class="hamburger" id="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="menu-hero dark-section">
+    <div class="container animate-on-scroll">
+      <h1>Our Menu 🍽️</h1>
+      <p>50+ dishes made fresh daily</p>
+      
+      <div class="search-bar">
+        <i class="fa-solid fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Search for your favorite dish...">
+      </div>
+    </div>
+  </header>
+
+  <div class="hidden-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,100 L1440,100 L1440,40 Q720,0 0,40 Z" fill="#FFF9F2"/>
+    </svg>
+  </div>
+
+  <!-- Filter Section -->
+  <div class="menu-filter-bar glass-dark">
+    <div class="filter-scroll-wrapper">
+      <div class="filter-pills" id="filterPills">
+        <button class="filter-pill active" 
+          data-category="all">
+          🍽️ All
+        </button>
+        <button class="filter-pill" 
+          data-category="starters">
+          🥘 Starters
+        </button>
+        <button class="filter-pill" 
+          data-category="main_course">
+          🍛 Main Course
+        </button>
+        <button class="filter-pill" 
+          data-category="breads">
+          🫓 Breads
+        </button>
+        <button class="filter-pill" 
+          data-category="rice">
+          🍚 Rice
+        </button>
+        <button class="filter-pill" 
+          data-category="desserts">
+          🍮 Desserts
+        </button>
+        <button class="filter-pill" 
+          data-category="beverages">
+          🥤 Beverages
+        </button>
+        <button class="filter-pill" 
+          data-category="thali">
+          🍱 Thali
+        </button>
+      </div>
+    </div>
+    
+    <div class="filter-controls">
+      <div class="veg-toggle-wrap">
+        <span class="veg-label">Veg Only</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="vegToggle"/>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      
+      <select class="sort-select glass-dark" id="sortSelect">
+        <option value="featured">Sort: Featured</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="popular">Most Popular</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Menu Grid -->
+  <section class="dark-section" style="min-height: 50vh; padding: 40px 0;">
+    <div class="container">
+      <div class="menu-grid" id="menuGrid">
+        <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--text-muted);">
+          <i class="fa-solid fa-spinner fa-spin fa-3x" style="color: var(--primary);"></i>
+          <p style="margin-top: 20px;">Cooking up the menu...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hidden-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,0 L1440,0 L1440,60 Q720,100 0,60 Z" fill="#14181F"/>
+    </svg>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer dark-section">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">🔥 Mirchi & Masala</div>
+          <p class="footer-desc">Where Every Bite Tells a Story. Experience the true taste of Malegaon's street food and traditional recipes.</p>
+        </div>
+        
+        <div>
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li><i class="fa-solid fa-location-dot"></i> Shop 7, Station Road, Near Clock Tower, Malegaon - 423203</li>
+            <li><i class="fa-solid fa-phone"></i> +91-9876543210</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Mirchi & Masala. Made with ❤️ in Malegaon.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Cart 🛒</h3>
+      <button class="close-cart" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    
+    <div class="cart-items" id="cartItems">
+      <div style="text-align:center; padding:40px; color:var(--text-muted);">
+        <i class="fa-solid fa-basket-shopping fa-3x" style="margin-bottom:15px; opacity:0.5;"></i>
+        <p>Your cart is empty.</p>
+      </div>
+    </div>
+    
+    <div class="cart-footer">
+      <div class="cart-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">₹0.00</span>
+      </div>
+      <div class="cart-row">
+        <span>GST (5%)</span>
+        <span id="cartTax">₹0.00</span>
+      </div>
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">₹0.00</span>
+      </div>
+      <button class="btn-orange btn-checkout" onclick="openOrderModal()" id="checkoutBtn" disabled>
+        Proceed to Checkout
+      </button>
+    </div>
+  </div>
+
+  <!-- Order Modal Form -->
+  <div class="order-modal-wrap" id="orderModal">
+    <div class="order-modal modal-content">
+      <div class="modal-header">
+        <h3>Complete Your Order</h3>
+        <button class="close-cart" onclick="closeOrderModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      
+      <div class="progress-container">
+        <div class="progress-bar-fill" id="progressBar"></div>
+        <div class="step active" id="step1Indicator">
+          <div class="step-num">1</div>
+          <span>Type</span>
+        </div>
+        <div class="step" id="step2Indicator">
+          <div class="step-num">2</div>
+          <span>Details</span>
+        </div>
+        <div class="step" id="step3Indicator">
+          <div class="step-num">3</div>
+          <span>Confirm</span>
+        </div>
+      </div>
+      
+      <div class="modal-body">
+        <!-- Step 1 -->
+        <div class="step-content active" id="step1">
+          <h4 style="color:white; margin-bottom:20px; font-family:'Nunito';">How would you like your food?</h4>
+          <div class="order-type-cards">
+            <div class="type-card active glass-dark" onclick="selectOrderType('dine_in')">
+              <i class="fa-solid fa-store"></i>
+              <div style="color:white; font-weight:bold;">Dine-In</div>
+            </div>
+            <div class="type-card glass-dark" onclick="selectOrderType('takeaway')">
+              <i class="fa-solid fa-bag-shopping"></i>
+              <div style="color:white; font-weight:bold;">Takeaway</div>
+            </div>
+            <div class="type-card glass-dark" onclick="selectOrderType('delivery')">
+              <i class="fa-solid fa-motorcycle"></i>
+              <div style="color:white; font-weight:bold;">Delivery</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="step-content" id="step2">
+          <h4 style="color:white; margin-bottom:20px; font-family:'Nunito';">Your Details</h4>
+          <form id="orderDetailsForm">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" id="customerName" required>
+            </div>
+            <div class="form-group">
+              <label>Phone Number *</label>
+              <input type="tel" id="customerPhone" required>
+            </div>
+            <div class="form-group" id="addressGroup" style="display:none;">
+              <label>Delivery Address *</label>
+              <input type="text" id="deliveryAddress">
+            </div>
+            <div class="form-group" id="tableGroup">
+              <label>Table Number (if known)</label>
+              <input type="text" id="tableNumber">
+            </div>
+          </form>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="step-content" id="step3">
+          <h4 style="color:white; margin-bottom:20px; font-family:'Nunito';">Review Order</h4>
+          <div style="background:var(--bg-tertiary); padding:15px; border-radius:8px; border:1px solid rgba(255,255,255,0.05); margin-bottom:20px;" class="glass-dark">
+            <div style="display:flex; justify-content:space-between; margin-bottom:10px; color:var(--text-muted);">
+              <span>Total Amount:</span>
+              <span id="reviewTotal" style="color:var(--primary); font-weight:bold; font-size:1.2rem;">₹0</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; color:var(--text-muted);">
+              <span>Order Type:</span>
+              <span id="reviewType" style="color:white;">Dine-In</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Special Instructions (Optional)</label>
+            <input type="text" id="specialInstructions" placeholder="e.g. Make it extra spicy">
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button class="btn-green" id="prevBtn" style="display:none;" onclick="prevStep()">Back</button>
+        <button class="btn-orange" id="nextBtn" onclick="nextStep()" style="margin-left:auto;">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>

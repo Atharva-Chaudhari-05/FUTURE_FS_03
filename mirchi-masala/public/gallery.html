@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Mirchi & Masala</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+  <div class="custom-cursor" id="cursor"></div>
+
+  <!-- Page Transition Element -->
+  <div class="page-transition" id="pageTransition"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">🔥</span>
+        <span class="logo-text">Mirchi & Masala</span>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      
+      <div class="nav-right">
+        <button class="cart-icon-btn" onclick="window.location.href='menu.html'">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+        <a href="contact.html#reservation" class="btn-green">Book Table</a>
+        <button class="hamburger" id="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="gallery-hero dark-section">
+    <div class="container animate-on-scroll">
+      <h1>A Feast for the Eyes 📸</h1>
+      <p class="accent-text" style="font-size:2rem; margin-top:10px;">Every dish crafted with love</p>
+    </div>
+  </header>
+
+  <div class="hidden-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,100 L1440,100 L1440,40 Q720,0 0,40 Z" fill="#FFF9F2"/>
+    </svg>
+  </div>
+
+  <!-- Gallery Section -->
+  <section class="dark-section section-padding">
+    <div class="container">
+      <div class="gallery-filters animate-on-scroll glass-dark" style="padding: 15px; border-radius: var(--radius); margin-bottom: 40px; display: inline-flex; flex-wrap: wrap; justify-content: center;">
+        <div class="filter-tab active" data-filter="all">All</div>
+        <div class="filter-tab" data-filter="food">Food</div>
+        <div class="filter-tab" data-filter="ambiance">Ambiance</div>
+        <div class="filter-tab" data-filter="kitchen">Kitchen</div>
+        <div class="filter-tab" data-filter="events">Events</div>
+      </div>
+      
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Loading state, will be populated by JS -->
+        <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--text-muted);">
+          <i class="fa-solid fa-spinner fa-spin fa-3x" style="color: var(--primary);"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="hidden-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,0 L1440,0 L1440,60 Q720,100 0,60 Z" fill="#14181F"/>
+    </svg>
+  </div>
+
+  <!-- Video Section -->
+  <section class="video-section dark-section section-padding">
+    <div class="container">
+      <h2 class="animate-on-scroll text-center" style="margin-bottom:40px;">Watch Us Cook 🎬</h2>
+      <div class="video-container animate-on-scroll glass-dark" style="padding: 10px; border-radius: 20px;">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="Kitchen Video" class="video-placeholder" style="border-radius: 12px; width: 100%; display: block;">
+        <div class="play-btn">
+          <i class="fa-solid fa-play"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Overlay -->
+  <div class="lightbox" id="lightbox">
+    <div class="lb-controls">
+      <button class="lb-btn" id="lbDownload" title="Download Image"><i class="fa-solid fa-download"></i></button>
+      <button class="lb-btn" id="lbClose" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    
+    <button class="lb-nav lb-prev" id="lbPrev"><i class="fa-solid fa-chevron-left"></i></button>
+    
+    <div class="lightbox-content">
+      <img src="" alt="Gallery Image" class="lightbox-img" id="lbImg">
+    </div>
+    
+    <button class="lb-nav lb-next" id="lbNext"><i class="fa-solid fa-chevron-right"></i></button>
+    
+    <div class="lb-footer">
+      <div class="lb-title" id="lbTitle">Image Title</div>
+      <div class="lb-counter" id="lbCounter">1 / 10</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer dark-section">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">🔥 Mirchi & Masala</div>
+          <p class="footer-desc">Where Every Bite Tells a Story. Experience the true taste of Malegaon's street food and traditional recipes.</p>
+        </div>
+        
+        <div>
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li><i class="fa-solid fa-location-dot"></i> Shop 7, Station Road, Near Clock Tower, Malegaon - 423203</li>
+            <li><i class="fa-solid fa-phone"></i> +91-9876543210</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Mirchi & Masala. Made with ❤️ in Malegaon.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>

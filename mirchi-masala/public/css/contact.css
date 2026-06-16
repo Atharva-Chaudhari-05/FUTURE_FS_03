@@ -1,0 +1,306 @@
+/* Contact Hero */
+.contact-hero {
+  padding: 150px 0 80px;
+  background: linear-gradient(rgba(13,17,23,0.8), var(--bg)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920') center/cover;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,107,53,0.2);
+}
+
+.contact-hero h1 {
+  font-size: 4rem;
+  color: white;
+}
+
+/* Info Cards */
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: -40px;
+  position: relative;
+  z-index: 10;
+  padding-bottom: 50px;
+}
+
+.info-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: var(--radius);
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: var(--transition);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.info-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255,107,53,0.3);
+}
+
+.ic-icon {
+  width: 60px; height: 60px;
+  background: var(--bg-tertiary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 20px;
+}
+
+.ic-address .ic-icon { color: var(--primary); }
+.ic-phone .ic-icon { color: #25D366; }
+.ic-hours .ic-icon { color: #3498DB; }
+
+.info-card h3 { color: white; margin-bottom: 10px; }
+.info-card p { margin: 0; color: var(--text-muted); }
+
+/* Contact Container Layout */
+.contact-container {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+.contact-form-side {
+  flex: 60%;
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-top: 3px solid var(--primary);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.contact-form-side h2 {
+  color: white;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.form-control {
+  width: 100%;
+  padding: 15px;
+  background: rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  transition: var(--transition);
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 15px rgba(255,107,53,0.2);
+  background: rgba(0,0,0,0.4);
+}
+
+textarea.form-control {
+  height: 150px;
+  resize: vertical;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.1rem;
+}
+
+.quick-contact-side {
+  flex: 40%;
+}
+
+.quick-contact-side h3 {
+  color: white;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+}
+
+.quick-btn {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: white;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: var(--transition);
+}
+
+.quick-btn:hover {
+  transform: translateX(10px);
+}
+
+.qb-whatsapp { border-left: 4px solid #25D366; }
+.qb-whatsapp:hover { background: rgba(37,211,102,0.1); border-color: #25D366; }
+.qb-whatsapp i { color: #25D366; }
+
+.qb-call { border-left: 4px solid var(--primary); }
+.qb-call:hover { background: rgba(255,107,53,0.1); border-color: var(--primary); }
+.qb-call i { color: var(--primary); }
+
+.qb-email { border-left: 4px solid #3498DB; }
+.qb-email:hover { background: rgba(52,152,219,0.1); border-color: #3498DB; }
+.qb-email i { color: #3498DB; }
+
+.quick-btn i { font-size: 2rem; }
+.qb-text strong { display: block; font-size: 1.1rem; margin-bottom: 5px; }
+.qb-text span { color: var(--text-muted); font-size: 0.9rem; }
+
+/* Reservation Section */
+.reservation-section {
+  background: transparent;
+  padding: 80px 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.reservation-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.res-form {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255,107,53,0.2);
+}
+
+.res-form h2 { color: white; margin-bottom: 30px; }
+
+.time-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.time-slot {
+  padding: 8px 15px;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--text-muted);
+}
+
+.time-slot.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.guest-counter {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(0,0,0,0.3);
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.1);
+  width: fit-content;
+}
+
+.guest-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.guest-num { font-size: 1.2rem; font-weight: bold; color: white; width: 30px; text-align: center; }
+
+.res-img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* FAQ */
+.faq-section {
+  padding: 80px 0;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--card-bg);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: var(--radius);
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.faq-question i {
+  color: var(--primary);
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 25px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  color: var(--text-muted);
+}
+
+.faq-item.active .faq-answer {
+  padding: 0 25px 20px;
+  max-height: 200px;
+}
+
+/* Map */
+.map-container {
+  width: 100%;
+  height: 450px;
+  filter: grayscale(1) invert(1) hue-rotate(200deg);
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+@media (max-width: 900px) {
+  .contact-container { flex-direction: column; }
+  .reservation-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .info-cards { grid-template-columns: 1fr; padding: 0 20px; margin-top: 20px;}
+}

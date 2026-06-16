@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Mirchi & Masala</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+  <div class="custom-cursor" id="cursor"></div>
+
+  <!-- Page Transition Element -->
+  <div class="page-transition" id="pageTransition"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">🔥</span>
+        <span class="logo-text">Mirchi & Masala</span>
+      </a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">Our Story</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      
+      <div class="nav-right">
+        <button class="cart-icon-btn" onclick="window.location.href='menu.html'">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </button>
+        <a href="#reservation" class="btn-green">Book Table</a>
+        <button class="hamburger" id="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="contact-hero dark-section">
+    <div class="container animate-on-scroll">
+      <h1>Get In Touch 📬</h1>
+      <p class="accent-text" style="font-size:2rem; margin-top:10px;">We'd love to hear from you</p>
+    </div>
+  </header>
+
+  <div class="hidden-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,100 L1440,100 L1440,40 Q720,0 0,40 Z" fill="#FFF9F2"/>
+    </svg>
+  </div>
+
+  <!-- Main Content Wrapper for Light Background -->
+  <div class="dark-section">
+    
+    <!-- Info Cards -->
+    <section class="container info-cards section-padding">
+      <div class="info-card ic-address glass-dark animate-on-scroll">
+        <div class="ic-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <h3>Visit Us</h3>
+        <p>Shop 7, Station Road,<br>Near Clock Tower, Malegaon - 423203</p>
+      </div>
+      
+      <div class="info-card ic-phone glass-dark animate-on-scroll" style="transition-delay:0.1s">
+        <div class="ic-icon"><i class="fa-solid fa-phone"></i></div>
+        <h3>Call Us</h3>
+        <p>+91-9876543210<br>Available 11 AM - 11 PM</p>
+      </div>
+      
+      <div class="info-card ic-hours glass-dark animate-on-scroll" style="transition-delay:0.2s">
+        <div class="ic-icon"><i class="fa-solid fa-clock"></i></div>
+        <h3>Opening Hours</h3>
+        <p>Monday - Sunday<br>11:00 AM - 11:30 PM</p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding container">
+      <div class="contact-container">
+        <div class="contact-form-side glass-dark animate-on-scroll" style="padding: 40px; border-radius: var(--radius);">
+          <h2 style="color:var(--dark-text);">Send a Message</h2>
+          <form id="contactForm">
+            <div class="form-group">
+              <label style="color:var(--dark-text-muted);">Full Name *</label>
+              <input type="text" class="form-control" id="contactName" required placeholder="John Doe">
+            </div>
+            
+            <div class="form-group">
+              <label style="color:var(--dark-text-muted);">Email Address *</label>
+              <input type="email" class="form-control" id="contactEmail" required placeholder="john@example.com">
+            </div>
+            
+            <div class="form-group">
+              <label style="color:var(--dark-text-muted);">Phone Number</label>
+              <input type="tel" class="form-control" id="contactPhone" placeholder="+91 9876543210">
+            </div>
+            
+            <div class="form-group">
+              <label style="color:var(--dark-text-muted);">Subject</label>
+              <input type="text" class="form-control" id="contactSubject" placeholder="How can we help?">
+            </div>
+            
+            <div class="form-group">
+              <label style="color:var(--dark-text-muted);">Message *</label>
+              <textarea class="form-control" id="contactMessage" required placeholder="Write your message here..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn-orange submit-btn" id="contactSubmitBtn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+            <div id="contactStatus" style="margin-top:15px; text-align:center;"></div>
+          </form>
+        </div>
+        
+        <div class="quick-contact-side animate-on-scroll" style="transition-delay:0.2s">
+          <h3>Prefer quick contact?</h3>
+          
+          <a href="https://wa.me/919876543210" target="_blank" class="quick-btn qb-whatsapp glass-dark">
+            <i class="fa-brands fa-whatsapp"></i>
+            <div class="qb-text">
+              <strong style="color:var(--text);">Chat with us on WhatsApp</strong>
+              <span style="color:var(--text-muted);">+91-9876543210</span>
+            </div>
+          </a>
+          
+          <a href="tel:+919876543210" class="quick-btn qb-call glass-dark">
+            <i class="fa-solid fa-phone-volume"></i>
+            <div class="qb-text">
+              <strong style="color:var(--text);">Call us directly</strong>
+              <span style="color:var(--text-muted);">Immediate assistance</span>
+            </div>
+          </a>
+          
+          <a href="mailto:hello@mirchimasala.com" class="quick-btn qb-email glass-dark">
+            <i class="fa-solid fa-envelope-open-text"></i>
+            <div class="qb-text">
+              <strong style="color:var(--text);">Email us</strong>
+              <span style="color:var(--text-muted);">hello@mirchimasala.com</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reservation Section -->
+    <section class="reservation-section section-padding" id="reservation">
+      <div class="container">
+        <div class="reservation-grid">
+          <div class="res-form glass-dark animate-on-scroll" style="padding: 40px; border-radius: var(--radius);">
+            <h2 style="color:var(--dark-text);">Reserve Your Table 🍽️</h2>
+            <form id="reservationForm">
+              <div class="form-group">
+                <label style="color:var(--dark-text-muted);">Name *</label>
+                <input type="text" class="form-control" id="resName" required>
+              </div>
+              
+              <div class="form-group">
+                <label style="color:var(--dark-text-muted);">Phone *</label>
+                <input type="tel" class="form-control" id="resPhone" required>
+              </div>
+              
+              <div class="form-group">
+                <label style="color:var(--dark-text-muted);">Date *</label>
+                <input type="date" class="form-control" id="resDate" required style="color-scheme: dark;">
+              </div>
+              
+              <div class="form-group">
+                <label style="color:var(--dark-text-muted);">Time *</label>
+                <div class="time-slots" id="timeSlots">
+                  <div class="time-slot" onclick="selectTime(this, '11:00 AM')">11:00 AM</div>
+                  <div class="time-slot" onclick="selectTime(this, '12:00 PM')">12:00 PM</div>
+                  <div class="time-slot" onclick="selectTime(this, '01:00 PM')">01:00 PM</div>
+                  <div class="time-slot" onclick="selectTime(this, '02:00 PM')">02:00 PM</div>
+                  <div class="time-slot" onclick="selectTime(this, '07:00 PM')">07:00 PM</div>
+                  <div class="time-slot active" onclick="selectTime(this, '08:00 PM')">08:00 PM</div>
+                  <div class="time-slot" onclick="selectTime(this, '09:00 PM')">09:00 PM</div>
+                  <div class="time-slot" onclick="selectTime(this, '10:00 PM')">10:00 PM</div>
+                </div>
+                <input type="hidden" id="resTime" value="08:00 PM" required>
+              </div>
+              
+              <div class="form-group">
+                <label style="color:var(--dark-text-muted);">Number of Guests *</label>
+                <div class="guest-counter">
+                  <button type="button" class="guest-btn" onclick="updateGuests(-1)">-</button>
+                  <div class="guest-num" id="guestCountDisplay">2</div>
+                  <button type="button" class="guest-btn" onclick="updateGuests(1)">+</button>
+                </div>
+                <input type="hidden" id="resGuests" value="2">
+              </div>
+              
+              <div class="form-group">
+                <label style="color:var(--dark-text-muted);">Special Requests</label>
+                <input type="text" class="form-control" id="resSpecial" placeholder="Anniversary, Window seat, etc.">
+              </div>
+              
+              <button type="submit" class="btn-orange submit-btn" id="resSubmitBtn" style="margin-top:20px;">Confirm Reservation</button>
+              <div id="resStatus" style="margin-top:15px; text-align:center;"></div>
+            </form>
+          </div>
+          
+          <div class="animate-on-scroll" style="transition-delay:0.2s">
+            <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&q=80" alt="Restaurant Table" class="res-img" style="border-radius: var(--radius); box-shadow: var(--glass-dark-shadow);">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section section-padding container">
+      <h2 class="text-center animate-on-scroll" style="margin-bottom:50px;">Got Questions? 🤔</h2>
+      
+      <div class="faq-container">
+        <div class="faq-item glass-dark animate-on-scroll">
+          <div class="faq-question">
+            Do you offer Jain food options?
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes! Several of our vegetarian dishes can be prepared without onion and garlic upon request. Just let your server know or add it to the special instructions when ordering online.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item glass-dark animate-on-scroll" style="transition-delay:0.1s">
+          <div class="faq-question">
+            Do you deliver to Camp area?
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely. We deliver across Malegaon, including Camp, Soygaon, and Sangmeshwar areas. Delivery is free for orders above ₹300.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item glass-dark animate-on-scroll" style="transition-delay:0.2s">
+          <div class="faq-question">
+            Can I book the restaurant for a private party?
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, we host birthdays, anniversaries, and corporate events. Please contact us at least 3 days in advance to discuss arrangements and special party menus.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div> <!-- End Light Section Wrapper -->
+
+  <div class="hidden-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,0 L1440,0 L1440,60 Q720,100 0,60 Z" fill="#14181F"/>
+    </svg>
+  </div>
+
+  <!-- Map -->
+  <section class="dark-section">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119330.14710186981!2d74.45330310243405!3d20.551274116515822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdec5f2c571bb47%3A0x5827ae11b9d7cb1c!2sMalegaon%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1684305881454!5m2!1sen!2sin" class="map-container" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer dark-section">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">🔥 Mirchi & Masala</div>
+          <p class="footer-desc">Where Every Bite Tells a Story. Experience the true taste of Malegaon's street food and traditional recipes.</p>
+        </div>
+        
+        <div>
+          <h4>Contact Us</h4>
+          <ul class="footer-contact">
+            <li><i class="fa-solid fa-location-dot"></i> Shop 7, Station Road, Near Clock Tower, Malegaon - 423203</li>
+            <li><i class="fa-solid fa-phone"></i> +91-9876543210</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Mirchi & Masala. Made with ❤️ in Malegaon.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
