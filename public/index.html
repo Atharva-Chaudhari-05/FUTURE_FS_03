@@ -57,8 +57,8 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero container">
-    <div class="hero-split">
+  <section class="hero dark-section">
+    <div class="container hero-split">
       <div class="hero-content animate-on-scroll">
         <div class="hero-tag">🔥 Malegaon's #1 Street Food</div>
         <h1 class="hero-title" id="heroTitle">
@@ -81,13 +81,13 @@
       <div class="hero-visual animate-on-scroll" style="transition-delay: 0.2s">
         <div class="hero-glow"></div>
         <div class="floating-cards">
-          <div class="float-card fc-1">
+          <div class="float-card fc-1 glass-dark">
             <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=800&q=80" alt="Maharashtra Thali">
           </div>
-          <div class="float-card fc-2">
+          <div class="float-card fc-2 glass-dark">
             <img src="https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=600&q=80" alt="Vada Pav">
           </div>
-          <div class="float-card fc-3">
+          <div class="float-card fc-3 glass-dark">
             <img src="https://images.unsplash.com/photo-1589301760014-d929f39ce9b0?w=600&q=80" alt="Street Food">
           </div>
         </div>
@@ -96,164 +96,194 @@
   </section>
 
   <!-- Stats Section -->
-  <section class="stats-row">
+  <section class="stats-row dark-section">
     <div class="container stats-grid">
-      <div class="stat-item animate-on-scroll">
+      <div class="stat-item stat-box glass-dark animate-on-scroll">
         <h3 class="counter" data-target="10000">0</h3>
         <p>Orders Delivered</p>
       </div>
-      <div class="stat-item animate-on-scroll" style="transition-delay: 0.1s">
+      <div class="stat-item stat-box glass-dark animate-on-scroll" style="transition-delay: 0.1s">
         <h3 class="counter" data-target="50">0</h3>
         <p>Menu Items</p>
       </div>
-      <div class="stat-item animate-on-scroll" style="transition-delay: 0.2s">
+      <div class="stat-item stat-box glass-dark animate-on-scroll" style="transition-delay: 0.2s">
         <h3 class="counter" data-target="15">0</h3>
         <p>Years of Taste</p>
       </div>
-      <div class="stat-item animate-on-scroll" style="transition-delay: 0.3s">
+      <div class="stat-item stat-box glass-dark animate-on-scroll" style="transition-delay: 0.3s">
         <h3>4.9 ⭐</h3>
         <p>Customer Rating</p>
       </div>
     </div>
   </section>
 
+  <div class="section-divider-dark-to-light">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,100 L1440,100 L1440,40 Q720,0 0,40 Z" fill="#FFF9F2"/>
+    </svg>
+  </div>
+
   <!-- Categories Section -->
-  <section class="section-padding container">
-    <h2 class="text-center animate-on-scroll">Cravings <span class="accent-text">Satisfied</span></h2>
-    <div class="categories-scroll animate-on-scroll" style="transition-delay: 0.2s">
-      <div class="cat-pill active"><span>🥘</span> Starters</div>
-      <div class="cat-pill"><span>🍛</span> Main Course</div>
-      <div class="cat-pill"><span>🫓</span> Breads</div>
-      <div class="cat-pill"><span>🍚</span> Rice & Biryani</div>
-      <div class="cat-pill"><span>🍮</span> Desserts</div>
-      <div class="cat-pill"><span>🥤</span> Beverages</div>
-      <div class="cat-pill"><span>🍱</span> Thali</div>
-      <div class="cat-pill"><span>🌮</span> Street Food</div>
+  <section class="categories-section section-padding light-section">
+    <div class="container">
+      <h2 class="text-center animate-on-scroll">Cravings <span class="accent-text">Satisfied</span></h2>
+      <div class="categories-scroll animate-on-scroll" style="transition-delay: 0.2s">
+        <div class="cat-pill active"><span>🥘</span> Starters</div>
+        <div class="cat-pill"><span>🍛</span> Main Course</div>
+        <div class="cat-pill"><span>🫓</span> Breads</div>
+        <div class="cat-pill"><span>🍚</span> Rice & Biryani</div>
+        <div class="cat-pill"><span>🍮</span> Desserts</div>
+        <div class="cat-pill"><span>🥤</span> Beverages</div>
+        <div class="cat-pill"><span>🍱</span> Thali</div>
+        <div class="cat-pill"><span>🌮</span> Street Food</div>
+      </div>
     </div>
   </section>
 
   <!-- Bestsellers Section -->
-  <section class="section-padding">
+  <section class="bestsellers-section section-padding light-section-alt">
     <div class="container">
       <h2 class="animate-on-scroll">Fan Favourites 🔥</h2>
-    </div>
-    <div class="bestsellers-container animate-on-scroll" id="bestsellersGrid">
-      <!-- Injected by home.js -->
-      <div style="text-align:center; width:100%; color:var(--text-muted);">Loading our best dishes...</div>
+      <div class="bestsellers-container animate-on-scroll" id="bestsellersGrid">
+        <!-- Injected by home.js -->
+        <div style="text-align:center; width:100%; color:var(--light-text-muted);">Loading our best dishes...</div>
+      </div>
     </div>
   </section>
+
+  <div class="section-divider-light-to-dark">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,0 L1440,0 L1440,60 Q720,100 0,60 Z" fill="#14181F"/>
+    </svg>
+  </div>
 
   <!-- Why Us Section -->
-  <section class="section-padding container">
-    <div style="text-align:center; margin-bottom: 50px;" class="animate-on-scroll">
-      <h2>Why We're <span class="accent-text">Different</span></h2>
-      <p>The secret ingredient is always passion.</p>
-    </div>
-    
-    <div class="why-grid">
-      <div class="feature-card animate-on-scroll">
-        <div class="feature-card-inner">
-          <div class="feature-front">
-            <span class="feature-num">01</span>
-            <i class="fa-solid fa-pepper-hot"></i>
-            <h3>Authentic Spices</h3>
-          </div>
-          <div class="feature-back">
-            <p>We source our spices directly from local farmers to ensure the boldest and freshest flavors in every bite.</p>
-          </div>
-        </div>
+  <section class="why-us-section section-padding dark-section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom: 50px;" class="animate-on-scroll">
+        <h2>Why We're <span class="accent-text">Different</span></h2>
+        <p>The secret ingredient is always passion.</p>
       </div>
       
-      <div class="feature-card animate-on-scroll" style="transition-delay: 0.1s">
-        <div class="feature-card-inner">
-          <div class="feature-front">
-            <span class="feature-num">02</span>
-            <i class="fa-solid fa-fire-burner"></i>
-            <h3>Live Cooking</h3>
-          </div>
-          <div class="feature-back">
-            <p>Experience the sizzle! Our open kitchen lets you see exactly how your street food is prepared.</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="feature-card animate-on-scroll" style="transition-delay: 0.2s">
-        <div class="feature-card-inner">
-          <div class="feature-front">
-            <span class="feature-num">03</span>
-            <i class="fa-solid fa-leaf"></i>
-            <h3>Farm Fresh</h3>
-          </div>
-          <div class="feature-back">
-            <p>Vegetables and ingredients are brought in fresh every single morning. Zero compromise on quality.</p>
+      <div class="why-grid">
+        <div class="feature-card glass-dark animate-on-scroll">
+          <div class="feature-card-inner">
+            <div class="feature-front">
+              <span class="feature-num">01</span>
+              <i class="fa-solid fa-pepper-hot"></i>
+              <h3>Authentic Spices</h3>
+            </div>
+            <div class="feature-back">
+              <p>We source our spices directly from local farmers to ensure the boldest and freshest flavors in every bite.</p>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="feature-card animate-on-scroll" style="transition-delay: 0.3s">
-        <div class="feature-card-inner">
-          <div class="feature-front">
-            <span class="feature-num">04</span>
-            <i class="fa-solid fa-motorcycle"></i>
-            <h3>Lightning Fast</h3>
+        
+        <div class="feature-card glass-dark animate-on-scroll" style="transition-delay: 0.1s">
+          <div class="feature-card-inner">
+            <div class="feature-front">
+              <span class="feature-num">02</span>
+              <i class="fa-solid fa-fire-burner"></i>
+              <h3>Live Cooking</h3>
+            </div>
+            <div class="feature-back">
+              <p>Experience the sizzle! Our open kitchen lets you see exactly how your street food is prepared.</p>
+            </div>
           </div>
-          <div class="feature-back">
-            <p>Hot food served hot. Our streamlined process ensures your order reaches you in record time.</p>
+        </div>
+        
+        <div class="feature-card glass-dark animate-on-scroll" style="transition-delay: 0.2s">
+          <div class="feature-card-inner">
+            <div class="feature-front">
+              <span class="feature-num">03</span>
+              <i class="fa-solid fa-leaf"></i>
+              <h3>Farm Fresh</h3>
+            </div>
+            <div class="feature-back">
+              <p>Vegetables and ingredients are brought in fresh every single morning. Zero compromise on quality.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="feature-card glass-dark animate-on-scroll" style="transition-delay: 0.3s">
+          <div class="feature-card-inner">
+            <div class="feature-front">
+              <span class="feature-num">04</span>
+              <i class="fa-solid fa-motorcycle"></i>
+              <h3>Lightning Fast</h3>
+            </div>
+            <div class="feature-back">
+              <p>Hot food served hot. Our streamlined process ensures your order reaches you in record time.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <div class="section-divider-dark-to-light">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,100 L1440,100 L1440,40 Q720,0 0,40 Z" fill="#FFF9F2"/>
+    </svg>
+  </div>
 
   <!-- Testimonials Section -->
-  <section class="section-padding container">
-    <h2 class="text-center animate-on-scroll" style="margin-bottom: 50px;">Word on the <span class="accent-text">Street</span></h2>
-    
-    <div class="testi-masonry">
-      <div class="testi-card glass animate-on-scroll">
-        <span class="quote-mark">"</span>
-        <div class="stars">★★★★★</div>
-        <p class="testi-text">The Misal Pav here is out of this world! I've been coming here every Sunday for 3 years, and the taste never changes. Absolutely the best in Malegaon.</p>
-        <div class="testi-author">
-          <div class="author-initial">R</div>
-          <div>
-            <strong>Rahul S.</strong><br>
-            <span style="color:var(--text-muted); font-size:0.8rem;">Camp Area</span>
+  <section class="testimonials-section section-padding light-section">
+    <div class="container">
+      <h2 class="text-center animate-on-scroll" style="margin-bottom: 50px;">Word on the <span class="accent-text">Street</span></h2>
+      
+      <div class="testi-masonry">
+        <div class="testi-card testimonial-card animate-on-scroll">
+          <span class="quote-mark">"</span>
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">The Misal Pav here is out of this world! I've been coming here every Sunday for 3 years, and the taste never changes. Absolutely the best in Malegaon.</p>
+          <div class="testi-author">
+            <div class="author-initial">R</div>
+            <div>
+              <strong>Rahul S.</strong><br>
+              <span style="color:var(--light-text-muted); font-size:0.8rem;">Camp Area</span>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="testi-card glass animate-on-scroll" style="transition-delay: 0.1s">
-        <span class="quote-mark">"</span>
-        <div class="stars">★★★★★</div>
-        <p class="testi-text">Their Chicken Frankie and Masala Pav are my go-to midnight snacks. The delivery is incredibly fast and the food is always piping hot.</p>
-        <div class="testi-author">
-          <div class="author-initial">A</div>
-          <div>
-            <strong>Amit K.</strong><br>
-            <span style="color:var(--text-muted); font-size:0.8rem;">Soygaon</span>
+        
+        <div class="testi-card testimonial-card animate-on-scroll" style="transition-delay: 0.1s">
+          <span class="quote-mark">"</span>
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">Their Chicken Frankie and Masala Pav are my go-to midnight snacks. The delivery is incredibly fast and the food is always piping hot.</p>
+          <div class="testi-author">
+            <div class="author-initial">A</div>
+            <div>
+              <strong>Amit K.</strong><br>
+              <span style="color:var(--light-text-muted); font-size:0.8rem;">Soygaon</span>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="testi-card glass animate-on-scroll" style="transition-delay: 0.2s">
-        <span class="quote-mark">"</span>
-        <div class="stars">★★★★★</div>
-        <p class="testi-text">Finally found an authentic Maharashtra Thali that tastes exactly like home. The Zunka Bhakri takes me back to my childhood!</p>
-        <div class="testi-author">
-          <div class="author-initial">P</div>
-          <div>
-            <strong>Priya D.</strong><br>
-            <span style="color:var(--text-muted); font-size:0.8rem;">Sangmeshwar</span>
+        
+        <div class="testi-card testimonial-card animate-on-scroll" style="transition-delay: 0.2s">
+          <span class="quote-mark">"</span>
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">Finally found an authentic Maharashtra Thali that tastes exactly like home. The Zunka Bhakri takes me back to my childhood!</p>
+          <div class="testi-author">
+            <div class="author-initial">P</div>
+            <div>
+              <strong>Priya D.</strong><br>
+              <span style="color:var(--light-text-muted); font-size:0.8rem;">Sangmeshwar</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <div class="section-divider-light-to-dark">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,0 L1440,0 L1440,60 Q720,100 0,60 Z" fill="#14181F"/>
+    </svg>
+  </div>
+
   <!-- Special Offer Banner -->
-  <section class="offer-banner animate-on-scroll">
-    <div class="container glass" style="display:inline-block; padding: 40px; border-color: var(--primary);">
+  <section class="special-banner dark-section animate-on-scroll">
+    <div class="container glass-dark" style="display:inline-block; padding: 40px; border-color: var(--primary); border-radius: 24px; text-align: center; margin: 0 auto; display: block;">
       <h2 style="color:white; font-size: 2.5rem; margin:0;">Tonight's Special</h2>
       <p class="accent-text" style="font-size: 2.5rem; margin:10px 0;">Maharashtra Thali @ ₹199</p>
       
@@ -263,14 +293,14 @@
         <div class="cd-item"><span class="cd-num" id="cd-seconds">45</span><span class="cd-label">Secs</span></div>
       </div>
       
-      <a href="https://wa.me/919876543210" target="_blank" class="btn-green" style="background:#25D366; color:white; border-color:#25D366; font-size:1.2rem;">
+      <a href="https://wa.me/919876543210" target="_blank" class="btn-green" style="background:#25D366; color:white; border-color:#25D366; font-size:1.2rem; margin-top: 20px;">
         <i class="fa-brands fa-whatsapp"></i> Order Now on WhatsApp
       </a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer dark-section">
     <div class="container">
       <div class="footer-grid">
         <div>

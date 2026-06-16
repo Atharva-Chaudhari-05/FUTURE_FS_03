@@ -45,7 +45,7 @@
   </nav>
 
   <!-- Hero -->
-  <header class="menu-hero">
+  <header class="menu-hero dark-section">
     <div class="container animate-on-scroll">
       <h1>Our Menu 🍽️</h1>
       <p>50+ dishes made fresh daily</p>
@@ -57,8 +57,14 @@
     </div>
   </header>
 
+  <div class="section-divider-dark-to-light">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,100 L1440,100 L1440,40 Q720,0 0,40 Z" fill="#FFF9F2"/>
+    </svg>
+  </div>
+
   <!-- Filter Section -->
-  <div class="menu-filters">
+  <div class="menu-filters light-section glass-light" style="position: sticky; top: 70px; z-index: 100; margin: 0 20px; border-radius: var(--radius);">
     <div class="container" style="display:flex; justify-content:space-between; align-items:center; width:100%; flex-wrap:wrap; gap:20px;">
       <div class="category-pills" id="categoryFilters">
         <div class="cat-pill active" data-category="all"><span>🍽️</span> All</div>
@@ -75,7 +81,7 @@
         <label class="veg-toggle">
           <input type="checkbox" id="vegFilter">
           <div class="toggle-switch"></div>
-          <span style="color:var(--text); font-weight:600;">Veg Only</span>
+          <span style="color:var(--light-text); font-weight:600;">Veg Only</span>
         </label>
         
         <select class="sort-select" id="sortSelect">
@@ -88,17 +94,25 @@
   </div>
 
   <!-- Menu Grid -->
-  <section class="container" style="min-height: 50vh;">
-    <div class="menu-grid" id="menuGrid">
-      <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--text-muted);">
-        <i class="fa-solid fa-spinner fa-spin fa-3x" style="color: var(--primary);"></i>
-        <p style="margin-top: 20px;">Cooking up the menu...</p>
+  <section class="light-section" style="min-height: 50vh; padding: 40px 0;">
+    <div class="container">
+      <div class="menu-grid" id="menuGrid">
+        <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--light-text-muted);">
+          <i class="fa-solid fa-spinner fa-spin fa-3x" style="color: var(--primary);"></i>
+          <p style="margin-top: 20px;">Cooking up the menu...</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <div class="section-divider-light-to-dark">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,0 L1440,0 L1440,60 Q720,100 0,60 Z" fill="#14181F"/>
+    </svg>
+  </div>
+
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer dark-section">
     <div class="container">
       <div class="footer-grid">
         <div>
@@ -156,7 +170,7 @@
 
   <!-- Order Modal Form -->
   <div class="order-modal-wrap" id="orderModal">
-    <div class="order-modal">
+    <div class="order-modal modal-content">
       <div class="modal-header">
         <h3>Complete Your Order</h3>
         <button class="close-cart" onclick="closeOrderModal()"><i class="fa-solid fa-xmark"></i></button>
@@ -183,15 +197,15 @@
         <div class="step-content active" id="step1">
           <h4 style="color:white; margin-bottom:20px; font-family:'Nunito';">How would you like your food?</h4>
           <div class="order-type-cards">
-            <div class="type-card active" onclick="selectOrderType('dine_in')">
+            <div class="type-card active glass-dark" onclick="selectOrderType('dine_in')">
               <i class="fa-solid fa-store"></i>
               <div style="color:white; font-weight:bold;">Dine-In</div>
             </div>
-            <div class="type-card" onclick="selectOrderType('takeaway')">
+            <div class="type-card glass-dark" onclick="selectOrderType('takeaway')">
               <i class="fa-solid fa-bag-shopping"></i>
               <div style="color:white; font-weight:bold;">Takeaway</div>
             </div>
-            <div class="type-card" onclick="selectOrderType('delivery')">
+            <div class="type-card glass-dark" onclick="selectOrderType('delivery')">
               <i class="fa-solid fa-motorcycle"></i>
               <div style="color:white; font-weight:bold;">Delivery</div>
             </div>
@@ -224,7 +238,7 @@
         <!-- Step 3 -->
         <div class="step-content" id="step3">
           <h4 style="color:white; margin-bottom:20px; font-family:'Nunito';">Review Order</h4>
-          <div style="background:var(--bg-tertiary); padding:15px; border-radius:8px; border:1px solid rgba(255,255,255,0.05); margin-bottom:20px;">
+          <div style="background:var(--bg-tertiary); padding:15px; border-radius:8px; border:1px solid rgba(255,255,255,0.05); margin-bottom:20px;" class="glass-dark">
             <div style="display:flex; justify-content:space-between; margin-bottom:10px; color:var(--text-muted);">
               <span>Total Amount:</span>
               <span id="reviewTotal" style="color:var(--primary); font-weight:bold; font-size:1.2rem;">₹0</span>

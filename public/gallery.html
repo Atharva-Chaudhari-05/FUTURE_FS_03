@@ -44,27 +44,54 @@
   </nav>
 
   <!-- Hero -->
-  <header class="gallery-hero">
+  <header class="gallery-hero dark-section">
     <div class="container animate-on-scroll">
       <h1>A Feast for the Eyes 📸</h1>
       <p class="accent-text" style="font-size:2rem; margin-top:10px;">Every dish crafted with love</p>
     </div>
   </header>
 
+  <div class="section-divider-dark-to-light">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,100 L1440,100 L1440,40 Q720,0 0,40 Z" fill="#FFF9F2"/>
+    </svg>
+  </div>
+
   <!-- Gallery Section -->
-  <section class="container">
-    <div class="gallery-filters animate-on-scroll">
-      <div class="filter-tab active" data-filter="all">All</div>
-      <div class="filter-tab" data-filter="food">Food</div>
-      <div class="filter-tab" data-filter="ambiance">Ambiance</div>
-      <div class="filter-tab" data-filter="kitchen">Kitchen</div>
-      <div class="filter-tab" data-filter="events">Events</div>
+  <section class="light-section section-padding">
+    <div class="container">
+      <div class="gallery-filters animate-on-scroll glass-light" style="padding: 15px; border-radius: var(--radius); margin-bottom: 40px; display: inline-flex; flex-wrap: wrap; justify-content: center;">
+        <div class="filter-tab active" data-filter="all">All</div>
+        <div class="filter-tab" data-filter="food">Food</div>
+        <div class="filter-tab" data-filter="ambiance">Ambiance</div>
+        <div class="filter-tab" data-filter="kitchen">Kitchen</div>
+        <div class="filter-tab" data-filter="events">Events</div>
+      </div>
+      
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Loading state, will be populated by JS -->
+        <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--light-text-muted);">
+          <i class="fa-solid fa-spinner fa-spin fa-3x" style="color: var(--primary);"></i>
+        </div>
+      </div>
     </div>
-    
-    <div class="gallery-grid" id="galleryGrid">
-      <!-- Loading state, will be populated by JS -->
-      <div style="grid-column: 1/-1; text-align: center; padding: 50px; color: var(--text-muted);">
-        <i class="fa-solid fa-spinner fa-spin fa-3x" style="color: var(--primary);"></i>
+  </section>
+
+  <div class="section-divider-light-to-dark">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path d="M0,0 L1440,0 L1440,60 Q720,100 0,60 Z" fill="#14181F"/>
+    </svg>
+  </div>
+
+  <!-- Video Section -->
+  <section class="video-section dark-section section-padding">
+    <div class="container">
+      <h2 class="animate-on-scroll text-center" style="margin-bottom:40px;">Watch Us Cook 🎬</h2>
+      <div class="video-container animate-on-scroll glass-dark" style="padding: 10px; border-radius: 20px;">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="Kitchen Video" class="video-placeholder" style="border-radius: 12px; width: 100%; display: block;">
+        <div class="play-btn">
+          <i class="fa-solid fa-play"></i>
+        </div>
       </div>
     </div>
   </section>
@@ -90,21 +117,8 @@
     </div>
   </div>
 
-  <!-- Video Section -->
-  <section class="video-section">
-    <div class="container">
-      <h2 class="animate-on-scroll" style="margin-bottom:40px;">Watch Us Cook 🎬</h2>
-      <div class="video-container animate-on-scroll">
-        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" alt="Kitchen Video" class="video-placeholder">
-        <div class="play-btn">
-          <i class="fa-solid fa-play"></i>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer dark-section">
     <div class="container">
       <div class="footer-grid">
         <div>
