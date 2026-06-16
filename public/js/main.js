@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
     initScrollAnimations();
     initPageTransitions();
+    initStars();
 });
 
 // 1. Custom Cursor with Trail
@@ -215,4 +216,88 @@ window.addToCart = function(id, name, price, image) {
     }, 300);
     
     if(window.renderCart) window.renderCart();
+}
+
+// 6. Ambient Star Background
+function initStars() {
+    const canvas = document.createElement('canvas');
+    canvas.id = 'starCanvas';
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100vw';
+    canvas.style.height = '100vh';
+    canvas.style.zIndex = '-2'; // Behind everything, even background gradients
+    canvas.style.pointerEvents = 'none'; // Don't block clicks
+    canvas.style.background = 'transparent';
+    document.body.prepend(canvas);
+
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let stars = [];
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Star {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.size = Math.random() * 1.5 + 0.5;
+            this.speedX = Math.random() * 0.3 - 0.15;
+            this.speedY = Math.random() * 0.3 - 0.15;
+            this.opacity = Math.random();
+            this.fadeSpeed = Math.random() * 0.02 + 0.005;
+            this.fadeDir = Math.random() > 0.5 ? 1 : -1;
+            // Mixed colors: some white, some accent yellow, some primary orange
+            const rand = Math.random();
+            if (rand > 0.8) this.color = '255, 107, 53'; // Primary orange
+            else if (rand > 0.6) this.color = '255, 234, 167'; // Accent yellow
+            else this.color = '230, 237, 243'; // White text color
+        }
+        update() {
+            this.x += this.speedX;
+            this.y -= this.speedY; // Float upwards slightly
+            if (this.x < 0) this.x = width;
+            if (this.x > width) this.x = 0;
+            if (this.y < 0) this.y = height;
+            if (this.y > height) this.y = 0;
+
+            this.opacity += this.fadeSpeed * this.fadeDir;
+            if (this.opacity <= 0.05) {
+                this.opacity = 0.05;
+                this.fadeDir = 1;
+            }
+            if (this.opacity >= 0.8) {
+                this.opacity = 0.8;
+                this.fadeDir = -1;
+            }
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
+            ctx.fill();
+        }
+    }
+
+    // Number of stars based on screen size
+    const starCount = Math.floor((width * height) / 8000);
+    for (let i = 0; i < starCount; i++) {
+        stars.push(new Star());
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        stars.forEach(star => {
+            star.update();
+            star.draw();
+        });
+        requestAnimationFrame(animate);
+    }
+    animate();
 }
