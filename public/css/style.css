@@ -771,7 +771,7 @@ a:hover {
   height: 80px;
   margin-top: -1px;
   overflow: hidden;
-  background: var(--dark-bg);
+  background: transparent;
 }
 
 .section-divider-dark-to-light svg {
@@ -783,7 +783,7 @@ a:hover {
 /* FIX 4: Warm Glow Accents */
 .hero, .footer, .special-banner, .why-us-section, .about-hero, .gallery-hero, .contact-hero {
   position: relative;
-  background: var(--dark-bg);
+  background: transparent;
   overflow: hidden;
 }
 
@@ -820,7 +820,7 @@ a:hover {
 
 /* FIX 5: Text Contrast Fixes */
 .dark-section {
-  background-color: var(--dark-bg);
+  background-color: transparent;
   color: var(--dark-text);
 }
 .dark-section h1, .dark-section h2, .dark-section h3, .dark-section h4 {
