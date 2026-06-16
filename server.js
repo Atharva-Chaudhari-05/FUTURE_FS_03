@@ -30,9 +30,18 @@ app.post('/api/reservations', async (req, res, next) => {
     try {
         const { guest_name, guest_phone, guest_email, date, time, guests_count, special_requests } = req.body;
         
+        let formattedTime = time;
+        if (time && time.includes(' ')) {
+            const [timeStr, modifier] = time.split(' ');
+            let [hours, minutes] = timeStr.split(':');
+            if (hours === '12') hours = '00';
+            if (modifier === 'PM') hours = parseInt(hours, 10) + 12;
+            formattedTime = `${hours.toString().padStart(2, '0')}:${minutes}:00`;
+        }
+        
         const [result] = await req.db.query(
             'INSERT INTO reservations (guest_name, guest_phone, guest_email, date, time, guests_count, special_requests) VALUES (?, ?, ?, ?, ?, ?, ?)',
-            [guest_name, guest_phone, guest_email, date, time, guests_count, special_requests]
+            [guest_name, guest_phone, guest_email, date, formattedTime, guests_count, special_requests]
         );
         res.status(201).json({ success: true, message: 'Reservation created successfully', id: result.insertId });
     } catch (error) {

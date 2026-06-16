@@ -588,3 +588,6 @@
   .cart-sidebar { width: 100%; right: -100%; }
   .order-type-cards { flex-direction: column; }
 }
+
+.category-pills { min-width: 0; }
+.filter-controls { flex-shrink: 0; }
