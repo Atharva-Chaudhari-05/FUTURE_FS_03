@@ -164,7 +164,7 @@ textarea.form-control {
 
 /* Reservation Section */
 .reservation-section {
-  background: var(--bg-tertiary);
+  background: transparent;
   padding: 80px 0;
   border-top: 1px solid rgba(255,255,255,0.05);
 }
@@ -177,7 +177,9 @@ textarea.form-control {
 }
 
 .res-form {
-  background: var(--card-bg);
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 40px;
   border-radius: var(--radius-lg);
   border: 1px solid rgba(255,107,53,0.2);
