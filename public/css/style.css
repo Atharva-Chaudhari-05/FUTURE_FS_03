@@ -899,3 +899,5 @@ a:hover {
 .light-section .cat-pill { background: #FFFFFF; color: var(--light-text); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
 .cat-pill:hover, .cat-pill.active { background: var(--primary) !important; border-color: var(--primary) !important; color: white !important; box-shadow: var(--glow) !important; transform: translateY(-2px); }
 .cat-pill span { font-size: 1.2rem; }
+
+.hidden-divider { display: none !important; }
