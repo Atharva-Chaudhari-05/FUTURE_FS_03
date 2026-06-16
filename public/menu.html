@@ -64,32 +64,59 @@
   </div>
 
   <!-- Filter Section -->
-  <div class="menu-filters dark-section glass-dark" style="position: sticky; top: 70px; z-index: 100; margin: 0 20px; border-radius: var(--radius);">
-    <div class="container" style="display:flex; justify-content:space-between; align-items:center; width:100%; flex-wrap:wrap; gap:20px;">
-      <div class="category-pills" id="categoryFilters">
-        <div class="cat-pill active" data-category="all"><span>🍽️</span> All</div>
-        <div class="cat-pill" data-category="starters"><span>🥘</span> Starters</div>
-        <div class="cat-pill" data-category="main_course"><span>🍛</span> Main Course</div>
-        <div class="cat-pill" data-category="breads"><span>🫓</span> Breads</div>
-        <div class="cat-pill" data-category="rice"><span>🍚</span> Rice</div>
-        <div class="cat-pill" data-category="desserts"><span>🍮</span> Desserts</div>
-        <div class="cat-pill" data-category="beverages"><span>🥤</span> Beverages</div>
-        <div class="cat-pill" data-category="thali"><span>🍱</span> Thali</div>
+  <div class="menu-filter-bar glass-dark">
+    <div class="filter-scroll-wrapper">
+      <div class="filter-pills" id="filterPills">
+        <button class="filter-pill active" 
+          data-category="all">
+          🍽️ All
+        </button>
+        <button class="filter-pill" 
+          data-category="starters">
+          🥘 Starters
+        </button>
+        <button class="filter-pill" 
+          data-category="main_course">
+          🍛 Main Course
+        </button>
+        <button class="filter-pill" 
+          data-category="breads">
+          🫓 Breads
+        </button>
+        <button class="filter-pill" 
+          data-category="rice">
+          🍚 Rice
+        </button>
+        <button class="filter-pill" 
+          data-category="desserts">
+          🍮 Desserts
+        </button>
+        <button class="filter-pill" 
+          data-category="beverages">
+          🥤 Beverages
+        </button>
+        <button class="filter-pill" 
+          data-category="thali">
+          🍱 Thali
+        </button>
+      </div>
+    </div>
+    
+    <div class="filter-controls">
+      <div class="veg-toggle-wrap">
+        <span class="veg-label">Veg Only</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="vegToggle"/>
+          <span class="toggle-slider"></span>
+        </label>
       </div>
       
-      <div class="filter-controls">
-        <label class="veg-toggle">
-          <input type="checkbox" id="vegFilter">
-          <div class="toggle-switch"></div>
-          <span style="color:var(--dark-text); font-weight:600;">Veg Only</span>
-        </label>
-        
-        <select class="sort-select" id="sortSelect">
-          <option value="default">Sort By: Featured</option>
-          <option value="price_asc">Price: Low to High</option>
-          <option value="price_desc">Price: High to Low</option>
-        </select>
-      </div>
+      <select class="sort-select glass-dark" id="sortSelect">
+        <option value="featured">Sort: Featured</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="popular">Most Popular</option>
+      </select>
     </div>
   </div>
 

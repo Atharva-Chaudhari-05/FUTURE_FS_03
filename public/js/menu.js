@@ -36,13 +36,20 @@ async function fetchMenu() {
 
 function initFilters() {
     // Category Pills
-    const pills = document.querySelectorAll('.cat-pill');
+    const pills = document.querySelectorAll('.filter-pill');
     pills.forEach(pill => {
-        pill.addEventListener('click', (e) => {
+        pill.addEventListener('click', function(e) {
             pills.forEach(p => p.classList.remove('active'));
-            e.currentTarget.classList.add('active');
-            currentCategory = e.currentTarget.getAttribute('data-category');
+            this.classList.add('active');
+            currentCategory = this.getAttribute('data-category');
             renderMenu();
+            
+            // Auto-scroll active pill into view
+            this.scrollIntoView({ 
+              behavior: 'smooth', 
+              inline: 'center', 
+              block: 'nearest' 
+            });
         });
     });
     
@@ -53,9 +60,9 @@ function initFilters() {
     }
     
     // Veg Toggle
-    const vegFilter = document.getElementById('vegFilter');
-    if(vegFilter) {
-        vegFilter.addEventListener('change', renderMenu);
+    const vegToggle = document.getElementById('vegToggle');
+    if(vegToggle) {
+        vegToggle.addEventListener('change', renderMenu);
     }
     
     // Sort
@@ -70,7 +77,7 @@ function renderMenu() {
     if (!grid) return;
     
     const searchVal = document.getElementById('searchInput')?.value.toLowerCase() || '';
-    const vegOnly = document.getElementById('vegFilter')?.checked || false;
+    const vegOnly = document.getElementById('vegToggle')?.checked || false;
     const sortBy = document.getElementById('sortSelect')?.value || 'default';
     
     let filtered = allDishes.filter(dish => {
@@ -88,10 +95,12 @@ function renderMenu() {
     });
     
     // Sorting
-    if(sortBy === 'price_asc') {
+    if(sortBy === 'price-low') {
         filtered.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-    } else if(sortBy === 'price_desc') {
+    } else if(sortBy === 'price-high') {
         filtered.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+    } else if(sortBy === 'popular') {
+        filtered.sort((a, b) => b.is_bestseller - a.is_bestseller);
     } else {
         // Default sort (bestsellers first)
         filtered.sort((a, b) => b.is_bestseller - a.is_bestseller);
