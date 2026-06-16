@@ -2,8 +2,8 @@
 
 :root {
   /* Dark sections (hero, footer, special banner) */
-  --dark-bg: #14181F;
-  --dark-bg-2: #1C2128;
+  --dark-bg: #000000;
+  --dark-bg-2: #0A0A0A;
   --dark-card: rgba(255,255,255,0.05);
   --dark-text: #F0F2F5;
   --dark-text-muted: #A8B3C2;
